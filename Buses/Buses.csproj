@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\images\bus.png\**" />
+    <Content Remove="wwwroot\images\bus.png\**" />
+    <EmbeddedResource Remove="wwwroot\images\bus.png\**" />
+    <None Remove="wwwroot\images\bus.png\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>

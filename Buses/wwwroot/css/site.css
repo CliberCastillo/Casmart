@@ -41,3 +41,14 @@ body {
 .colorPagina {
     background-color: #d74f57;
 }
+.redondeadonorelieve {
+    border-radius: 5px;
+    border: 1px solid #d74f57;
+}
+.bordeSteve {
+    border: 1px solid #99A3A4;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px 0px #EAEDED;
+    -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
+    box-shadow: 10px 10px 5px 0px #EAEDED;
+}
