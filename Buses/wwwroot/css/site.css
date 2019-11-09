@@ -1,8 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    /*padding-top: 50px;
+    padding-bottom: 20px;*/
 }
 
 /* Wrapping element */
@@ -43,10 +43,10 @@ body {
 }
 .redondeadonorelieve {
     border-radius: 5px;
-    border: 1px solid #d74f57;
+    border: 2px solid #d74f57;
 }
 .bordeSteve {
-    border: 1px solid #99A3A4;
+    border: 1px solid #d74f57;
     border-radius: 5px;
     -webkit-box-shadow: 10px 10px 5px 0px #EAEDED;
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
