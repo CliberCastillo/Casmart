@@ -52,3 +52,18 @@ body {
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
     box-shadow: 10px 10px 5px 0px #EAEDED;
 }
+.border {
+    border: 4px solid #000000;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px 0px #EAEDED;
+    -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
+    box-shadow: 10px 10px 5px 0px #EAEDED;
+}
+.imagenesfondo {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: url('../images/boat-house-192990.jpg');
+    background-color: rgb(230,230,230);
+    background-blend-mode: soft-light;
+    background-size: 100% 100%;
+}
