@@ -31,11 +31,11 @@
                 </ul>
             </div>
             <form class="form-inline my-2 my-lg-0 float-right">
-                <img src="~/images/linkedin (1).png" width="30" class="mr-4" id="linkedin"/>
-                <img src="~/images/youtube (1).png" width="30" class="mr-4" id="youtube"/>
-                <img src="~/images/variante-del-logo-de-whatsapp.png" width="30" class="mr-4" id="whatsapp"/>
-                <img src="~/images/instagram (1).png" width="30" class="mr-4" id="instagram"/>
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Iniciar Secion</button>
+                <img src="~/images/linkedin (1).png" width="30" class="mr-4" id="linkedin" />
+                <img src="~/images/youtube (1).png" width="30" class="mr-4" id="youtube" />
+                <img src="~/images/variante-del-logo-de-whatsapp.png" width="30" class="mr-4" id="whatsapp" />
+                <img src="~/images/instagram (1).png" width="30" class="mr-4" id="instagram" />
+                <button class="btn btn-outline-light my-2 my-sm-0 font-weight-bold" type="submit">Iniciar Secion</button>
             </form>
         </div>
     </nav>
@@ -43,11 +43,46 @@
     <div class="">
         @RenderBody()
         <br /><br /><br /><br /><br /><br />
-        <div class="fixed-bottom container">
-            <hr />
-            <footer>
-                <p>&copy; 2019 - Buses</p>
-            </footer>
+        <div class="fondoNavbar">
+            <div class="container">
+                <hr />
+                <footer>
+                    <div class="row">
+                        <div class="col-3">
+                            <p class="font-weight-bold text-white">Acerca de redBus</p>
+                            <div class="text-white">
+                                <a href="..." class="text-white">Sobre nosotros</a><br />
+                                <a href="..." class="text-white">Contáctanos</a><br />
+                                <a href="..." class="text-white">Mapa del sitio</a><br />
+                                <a href="..." class="text-white">Empresas</a>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <p class="font-weight-bold text-white">Info</p>
+                            <div>
+                                <a href="..." class="text-white">Términos y Condiciones</a><br />
+                                <a href="..." class="text-white">Política de privacidad</a><br />
+                                <a href="..." class="text-white">Políticas de Reembolso</a><br />
+                                <a href="..." class="text-white">Viajar por Perú</a><br />
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <p class="font-weight-bold text-white">Paises</p>
+                            <div class="text-white">
+                                Perú
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <br />
+                            <img src="~/images/linkedin (1).png" width="30" class="mr-4" id="linkedin1" />
+                            <img src="~/images/youtube (1).png" width="30" class="mr-4" id="youtube1" />
+                            <img src="~/images/variante-del-logo-de-whatsapp.png" width="30" class="mr-4" id="whatsapp1" />
+                            <img src="~/images/instagram (1).png" width="30" class="mr-4" id="instagram1" />
+                        </div>
+                    </div>
+                    <br />
+                </footer>
+            </div>
         </div>
     </div>
 

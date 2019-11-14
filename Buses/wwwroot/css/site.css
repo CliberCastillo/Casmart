@@ -46,7 +46,7 @@ body {
     border: 2px solid #d74f57;
 }
 .bordeSteve {
-    border: 1px solid #d74f57;
+    border: 3px solid #d74f57;
     border-radius: 5px;
     -webkit-box-shadow: 10px 10px 5px 0px #EAEDED;
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
@@ -66,4 +66,11 @@ body {
     background-color: rgb(230,230,230);
     background-blend-mode: soft-light;
     background-size: 100% 100%;
+}
+.negroBorder {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px 0px #EAEDED;
+    -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
+    box-shadow: 10px 10px 5px 0px #EAEDED;
 }

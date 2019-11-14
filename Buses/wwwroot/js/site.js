@@ -84,46 +84,6 @@ $(document).ready(function () {
     });
 });
 
-
-//$(document).ready(function () {
-//    $("#imagen1").mouseover(function () {
-//        $(this).css("width", "300");
-//    });
-
-//    $("#imagen1").mouseout(function () {
-//        $(this).css();
-//    });
-//});
-
-//$(document).ready(function () {
-//    $("#imagen2").mouseover(function () {
-//        $(this).css("width", "100");
-//    });
-
-//    $("#imagen2").mouseout(function () {
-//        $(this).css("width", "80");
-//    });
-//});
-
-//$(document).ready(function () {
-//    $("#imagen3").mouseover(function () {
-//        $(this).css("width", "100");
-//    });
-
-//    $("#imagen3").mouseout(function () {
-//        $(this).css("width", "80");
-//    });
-//});
-
-//$(document).ready(function () {
-//    $("#imagen4").mouseover(function () {
-//        $(this).css("width", "100");
-//    });
-
-//    $("#imagen4").mouseout(function () {
-//        $(this).css("width", "80");
-//    });
-//});
 $(document).ready(function () {
     $("#linkedin").mouseover(function () {
         $(this).css("width", "40");
