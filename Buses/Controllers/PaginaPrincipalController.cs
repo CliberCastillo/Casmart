@@ -5,15 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Buses.Models;
+using Buses.Service;
 
 namespace Buses.Controllers
 {
     public class PaginaPrincipalController : Controller
     {
+        private readonly IMantenimientoViaje _mantenimientoViaje;
+        public PaginaPrincipalController(IMantenimientoViaje mantenimientoViaje)
+        {
+            _mantenimientoViaje = mantenimientoViaje;
+        }
         public IActionResult Index()
         {
-            return View();
+            var viajes = _mantenimientoViaje.ObtenerListadoAgencia();
+            return View(viajes);
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -12,6 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\PaginaPrincipal\Index\_NuestraPromesa.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\PaginaPrincipal\Index\_NuestraPromesa.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />

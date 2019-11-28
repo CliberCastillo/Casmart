@@ -1,58 +1,8 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Pagina Principal";
 }
-<div class="imagenesfondo">
-    <br />
-    <br />
-    <div class="mt-4 text-center">
-        <h3>¡Llegaron los días Cyber WOW!</h3>
-        <h4>redBus la manera más fácil de comprar pasajes de bus</h4>
-    </div>
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2">
-            <select class="form-control redondeadonorelieve">
-                <option value="volvo" class="font-weight-bold">- Seleccionar -</option>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-        </div>
-        <div class="col-2">
-            <select class="form-control redondeadonorelieve">
-                <option value="volvo">- Seleccionar -</option>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-            </select>
-        </div>
-        <div class="col-2">
-            <div class="form-group row">
-                <div class="col-12">
-                    <input class="form-control redondeadonorelieve" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="form-group row">
-                <div class="col-12">
-                    <input class="form-control redondeadonorelieve" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <a class="btn colorPagina text-white font-weight-bold form-control" asp-controller="Pasaje" asp-action="Hora">Buscar</a>
-        </div>
-        <div class="col-1"></div>
-    </div>
-    <br />
-    <br />
-    <br />
-</div>
+<partial name="Index/_BusquedaViaje" />
 <br /><br />
 <div class="container">
     <div class="row bordeSteve">
@@ -178,53 +128,21 @@
 </div>
 <br />
 <div class="container">
-    <h1 class="text-center">Nuerstra Promesa</h1>
-    <br />
-    <div class="row">
-        <div class="col-3 text-center">
-            <img src="~/images/imagen1.png" id="imagen1" />
-            <h6 class="mt-2 pb-2">ELIGE TU MEDIO DE PAGO</h6>
-            <p>Paga con tarjeta de débito, crédito o Paypal. También paga sin tarjetas, usando el depósito en efectivo de PagoEfectivo.</p>
+    @foreach (var item in Model)
+    {
+        <div class="card mt-2 mb-2">
+            <div class="card-header">@item.NombreAgencia</div>
+            <div class="card-body">
+                @item.Correo<br />
+                @item.Telefono
+            </div>
+            <div class="card-footer">@item.EstadoAgencia</div>
         </div>
-        <div class="col-3 text-center">
-            <img src="~/images/imagen2.png" id="imagen2" />
-            <h6 class="mt-2 pb-2">ENCUENTRA OFERTAS INCREÍBLES</h6>
-            <p>Compra pasajes al mejor precio con nuestras promociones.</p>
-        </div>
-        <div class="col-3 text-center">
-            <img src="~/images/imagen3.png" id="imagen3" />
-            <h6 class="mt-2 pb-2">MUCHAS OPCIONES PARA VIAJAR EN BUS</h6>
-            <p>Escoge entre más de 150 empresas de bus. Viaja a más de 900 rutas por todo el Perú.</p>
-        </div>
-        <div class="col-3 text-center">
-            <img src="~/images/imagene4.png" id="imagen4" />
-            <h6 class="mt-2 pb-2">100% CONFIABLE</h6>
-            <p>Contamos con medios de pago seguros que garantizan la protección de tu compra.</p>
-        </div>
-    </div>
+    }
 </div>
+<!-- nuestra Promesa -->
+<partial name="Index/_NuestraPromesa" />
+
 <br /><br /><br /><br />
-<div class="container">
-    <h1 class="text-center">Opciones De Pago</h1>
-    <br />
-    <div class="row">
-        <div class="col-2 text-center">
-            <img src="~/images/visa.png" width="70" id="visa" />
-        </div>
-        <div class="col-2 text-center">
-            <img src="~/images/american-express.png" width="70" id="american" />
-        </div>
-        <div class="col-2 text-center">
-            <img src="~/images/tarjeta-mastercard.png" width="70" id="mastercard" />
-        </div>
-        <div class="col-2 text-center">
-            <img src="~/images/pagoefectivo-logo.png" width="126" class="mt-4" id="pagoEfectivo" />
-        </div>
-        <div class="col-2 text-center">
-            <img src="~/images/logotipo-de-diners-club-pay (1).png" width="70" id="diners" />
-        </div>
-        <div class="col-2 text-center">
-            <img src="~/images/paypal.png" width="70" id="paypal" />
-        </div>
-    </div>
-</div>
+<!-- Formas u opciones de pago -->
+<partial name="Index/_OpcionesPago" />
