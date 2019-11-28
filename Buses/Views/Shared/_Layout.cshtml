@@ -32,11 +32,30 @@
                 <img src="~/images/youtube (1).png" width="30" class="mr-4" id="youtube" />
                 <img src="~/images/variante-del-logo-de-whatsapp.png" width="30" class="mr-4" id="whatsapp" />
                 <img src="~/images/instagram (1).png" width="30" class="mr-4" id="instagram" />
-                <button class="btn btn-outline-light my-2 my-sm-0 font-weight-bold" type="submit">Iniciar Secion</button>
+                <button class="btn btn-outline-light my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#exampleModal">Iniciar Secion</button>
             </form>
         </div>
     </nav>
-
+    <!-- Modal para el incio de secion -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="">
         @RenderBody()
     </div>
