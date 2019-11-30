@@ -1,4 +1,4 @@
-﻿<form>
+﻿<form asp-action="Login" asp-controller="PaginaPrincipal">
     <div class="modal fade float-lg-right" id="ModalIniciarSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -17,7 +17,7 @@
                                     <img src="~/images/usuario-hombre.png" />
                                 </div>
                             </div>
-                            <input type="email" class="form-control" id="inlineFormInputGroup" placeholder="Ingresar su correo">
+                            <input type="text" class="form-control" id="inlineFormInputGroup" name="usuario" placeholder="Ingresar su correo">
                         </div>
                     </div>
                     <div class="col-auto">
@@ -28,16 +28,15 @@
                                     <img src="~/images/bloquear.png" />
                                 </div>
                             </div>
-                            <input type="password" class="form-control" id="inlineFormInputGroup" placeholder="Ingresar su contraseña">
+                            <input type="password" class="form-control" id="inlineFormInputGroup" name="contraseña" placeholder="Ingresar su contraseña">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
 
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalRegistrarme" data-dismiss="modal">+ Registrarme</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
 
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ModalInicionSesion" data-dismiss="modal">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-danger">Iniciar Sesión</button>
                 </div>
             </div>
         </div>

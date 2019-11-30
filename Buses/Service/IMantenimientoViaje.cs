@@ -10,5 +10,6 @@ namespace Buses.Service
     public interface IMantenimientoViaje
     {
         List<Agencia> ObtenerListadoAgencia();
+        bool Login(string usuario, string contraseña);
     }
 }
