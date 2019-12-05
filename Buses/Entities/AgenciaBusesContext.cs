@@ -1,15 +1,16 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Buses.Entities
 {
-    public partial class AgenciaBusesContext : DbContext
-    {
+    public partial class AgenciaBusesContext : IdentityDbContext<IdentityUser>
+    { 
         public AgenciaBusesContext()
         {
         }
-
         public AgenciaBusesContext(DbContextOptions<AgenciaBusesContext> options)
             : base(options)
         {
@@ -44,6 +45,8 @@ namespace Buses.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Agencia>(entity =>
             {
                 entity.HasKey(e => e.IdAgencia);

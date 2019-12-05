@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Buses.Entities.Agencia>
 <div class="imagenesfondo">
     <br />
     <br />
@@ -14,18 +14,18 @@
             <select class="form-control redondeadonorelieve">
                 <option value="volvo" class="font-weight-bold">- Origen -</option>
                 @foreach (var item in Model)
-                {
-                    <option value="@item.Cpostal">@item.NombreAgencia</option>
-                }
+                    {
+                        <option value="@item.Cpostal">@item.NombreAgencia</option>
+                    }
             </select>
         </div>
         <div class="col-2">
             <select class="form-control redondeadonorelieve">
                 <option value="volvo" class="font-weight-bold">- Destino -</option>
                 @foreach (var item in Model)
-                {
-                    <option value="@item.Cpostal">@item.NombreAgencia</option>
-                }
+                    {
+                        <option value="@item.Cpostal">@item.NombreAgencia</option>
+                    }
             </select>
         </div>
         <div class="col-2">
