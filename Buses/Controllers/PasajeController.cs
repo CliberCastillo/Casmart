@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Buses.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Buses.Controllers
 {
     public class PasajeController : Controller
     {
-        public IActionResult Hora()
+        private readonly IMantenimientoViaje _mantenimientoViaje;
+        public PasajeController(IMantenimientoViaje mantenimientoViaje)
         {
-            return View();
+            _mantenimientoViaje = mantenimientoViaje;
+        }
+        public IActionResult Index(string origen, string destino, DateTime fecha)
+        {
+            var ltsViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(origen, destino, fecha);
+            return View(ltsViajesDisponibles);
         }
     }
 }

@@ -13,7 +13,11 @@ namespace Buses.Service
         {
             _context = context;
         }
-        
+
+        public List<ItinerarioViaje> ObtenerItinerarioViaje(string origen, string destino, DateTime fechaViaje)
+        {
+            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == origen && x.AgenciaDestino == destino && x.HoraViaje == fechaViaje).ToList();
+        }
 
         public List<Agencia> ObtenerListadoAgencia()
         {
