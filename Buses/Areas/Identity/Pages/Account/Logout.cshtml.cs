@@ -24,6 +24,7 @@ namespace Buses.Areas.Identity.Pages.Account
 
         public void OnGet()
         {
+
         }
 
         public async Task<IActionResult> OnPost(string returnUrl = null)

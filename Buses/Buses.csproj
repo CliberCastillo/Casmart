@@ -15,13 +15,11 @@
   <ItemGroup>
     <Content Remove="Views\PaginaPrincipal\Index\_NuestraPromesa.cshtml" />
     <Content Remove="Views\PaginaPrincipal\Index\_Slider.cshtml" />
-    <Content Remove="Views\Shared\_Layout\_ModalRegistro.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Views\PaginaPrincipal\Index\_NuestraPromesa.cshtml" />
     <None Include="Views\PaginaPrincipal\Index\_Slider.cshtml" />
-    <None Include="Views\Shared\_Layout\_ModalRegistro.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

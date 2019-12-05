@@ -13,23 +13,7 @@ namespace Buses.Service
         {
             _context = context;
         }
-
-        public bool Login(string usuario, string contraseña)
-        {
-            int UsuarioEmpleado = _context.UsuarioEmpleado
-                                    .Where(x => x.Usuario == usuario && x.Contrasenia == contraseña)
-                                    .Count();
-
-            int UsuarioPasajero = _context.UsuarioPasajero
-                                    .Where(x => x.Usuario == usuario && x.Contrasenia == contraseña)
-                                    .Count();
-
-            if (UsuarioEmpleado >= 1 || UsuarioPasajero >= 1)
-            {
-                return true;
-            }
-            return false;
-        }
+        
 
         public List<Agencia> ObtenerListadoAgencia()
         {
