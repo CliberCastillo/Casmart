@@ -1,4 +1,5 @@
 ﻿using System;
+using Buses.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Buses.Entities
 {
-    public partial class AgenciaBusesContext : IdentityDbContext<IdentityUser>
+    public partial class AgenciaBusesContext : IdentityDbContext<AplicationUser,AplicationRole,string>
     { 
         public AgenciaBusesContext()
         {

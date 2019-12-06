@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Buses.Entities;
+using Buses.Identity;
 using Buses.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,7 +38,9 @@ namespace Buses
             });
 
             services.AddDbContext<AgenciaBusesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Conexion")));
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AgenciaBusesContext>();
+            services.AddIdentity<AplicationUser, AplicationRole>()
+                .AddEntityFrameworkStores<AgenciaBusesContext>()
+                .AddDefaultTokenProviders();
 
             services.AddTransient<IMantenimientoViaje, MantenimientoViaje>();
 
