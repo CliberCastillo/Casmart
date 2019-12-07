@@ -1,0 +1,47 @@
+﻿<form asp-action="" asp-controller="">
+    <div class="modal fade float-lg-right" id="ModalIniciarSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Inicio de Sesión 'Red Bus'</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-auto">
+                        <label>Correo</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <img src="~/images/usuario-hombre.png" />
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="txtCorreo" name="usuario" placeholder="Ingresar su correo">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <label>Contraseña</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <img src="~/images/bloquear.png" />
+                                </div>
+                            </div>
+                            <input type="password" class="form-control" id="inlineFormInputGroup" name="contraseña" placeholder="Ingresar su contraseña">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+
+                    <button type="submit" class="btn btn-danger" id="botonIniciarSesion">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    <script src="~/js/PaginaPrincipal/paginaPrincipal.js"></script>
+}

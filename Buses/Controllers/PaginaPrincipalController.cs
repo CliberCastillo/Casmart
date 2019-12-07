@@ -21,14 +21,6 @@ namespace Buses.Controllers
             var viajes = _mantenimientoViaje.ObtenerListadoAgencia();
             return View(viajes);
         }
-        public JsonResult Login(string correo)
-        {
-            //if (_mantenimientoViaje.Login(usuario,contraseña))
-            //{
-            //    ViewBag.message = "Bienvenido";
-            //}
-            return Json("");
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

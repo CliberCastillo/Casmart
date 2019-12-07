@@ -1,10 +1,9 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@*@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" method="post"></form>
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li>
@@ -22,4 +21,4 @@ else
         <li><a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold">Registrarme</a></li>
         <li><a asp-area="Identity" asp-page="/Account/Login" id="iniciarSesion" class="btn btn-outline-light my-2 ml-1 my-sm-0 font-weight-bold">Iniciar Sesion</a></li>
     </ul>
-}
+}*@

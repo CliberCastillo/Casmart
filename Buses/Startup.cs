@@ -42,9 +42,11 @@ namespace Buses
                 .AddEntityFrameworkStores<AgenciaBusesContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<IMantenimientoViaje, MantenimientoViaje>();
 
             services.AddSession();
+            services.AddMvc();
 
             services.Configure<IdentityOptions>(options =>
             {
