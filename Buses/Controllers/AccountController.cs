@@ -19,9 +19,24 @@ namespace Buses.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Login()
+        public ViewResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel login)
+        {
+            var resultado = await _signInManager.PasswordSignInAsync(
+                login.Email,
+                login.Password,
+                login.Remenber,
+                false
+                );
+            if (resultado.Succeeded)
+            {
+                return RedirectToAction("Index", "PaginaPrincipal");
+            }
+            return RedirectToAction("Login");
         }
         [HttpPost]
         public async Task<IActionResult> CreateUser(NewUserViewModel model)
@@ -35,13 +50,18 @@ namespace Buses.Controllers
                 );
             if (resultado.Succeeded)
             {
-                ViewBag.Succeeded = true;
+                ViewBag.Succeeded = "Se Registro";
                 return RedirectToAction("Index", "PaginaPrincipal");
             }
             {
-                ViewBag.Falied = false;
+                ViewBag.Falied = "No se Registro";
                 return RedirectToAction("Index", "PaginaPrincipal");
             }
         }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "PaginaPrincipal");
+;        }
     }
 }

@@ -14,18 +14,18 @@
             <select class="form-control redondeadonorelieve">
                 <option value="volvo" class="font-weight-bold">- Origen -</option>
                 @foreach (var item in Model)
-                    {
-                        <option value="@item.Cpostal">@item.NombreAgencia</option>
-                    }
+                {
+                    <option value="@item.Cpostal">@item.NombreAgencia</option>
+                }
             </select>
         </div>
         <div class="col-2">
             <select class="form-control redondeadonorelieve">
                 <option value="volvo" class="font-weight-bold">- Destino -</option>
                 @foreach (var item in Model)
-                    {
-                        <option value="@item.Cpostal">@item.NombreAgencia</option>
-                    }
+                {
+                    <option value="@item.Cpostal">@item.NombreAgencia</option>
+                }
             </select>
         </div>
         <div class="col-2">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-2">
-            <a class="btn colorPagina text-white font-weight-bold form-control" asp-controller="Pasaje" asp-action="Hora">Buscar</a>
+            <a class="btn colorPagina text-white font-weight-bold form-control" id="regis" >Buscar</a>
         </div>
         <div class="col-1"></div>
     </div>

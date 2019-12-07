@@ -19,12 +19,26 @@
             <img src="~/images/youtube (1).png" width="30" class="mr-4" id="youtube" />
             <img src="~/images/variante-del-logo-de-whatsapp.png" width="30" class="mr-4" id="whatsapp" />
             <img src="~/images/instagram (1).png" width="30" class="mr-4" id="instagram" />
-            <button style="" type="button" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion">
-                Iniciar Secion
-            </button>
-            <button type="button" id="registrames" class="btn btn-outline-light my-2 ml-1 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalRegistrarme">
-                Registrarme
-            </button>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button type="button" id="registrames" class="btn btn-outline-light my-2 ml-1 mr-1 my-sm-0 font-weight-bold">
+                    <span class="mr-1">
+                        <img src="~/images/usuario (1).png" width="20" />
+                    </span>
+                    @User.Identity.Name
+                </button>
+                <a asp-action="Logout" asp-controller="Account" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold">Cerrar Sesion</a>
+
+            }
+            else
+            {
+                <button style="" type="button" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion">
+                    Iniciar Secion
+                </button>
+                <button type="button" id="" class="btn btn-outline-light my-2 ml-1 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalRegistrarme">
+                    Registrarme
+                </button>
+            }
         </form>
 
     </div>

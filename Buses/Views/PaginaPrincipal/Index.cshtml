@@ -3,7 +3,8 @@
     ViewData["Title"] = "Pagina Principal";
 }
 <partial name="Index/_BusquedaViaje" />
-<br /><br />
+<br />
+<br />
 <div class="container">
     <div class="row bordeSteve">
         <div class="col-1 text-center">
@@ -15,7 +16,9 @@
         </div>
     </div>
 </div>
-<br /><br /><br />
+<br />
+<br />
+<br />
 <div class="container">
     <div class="row text-center">
         <div class="col-4" id="mochila">
@@ -64,7 +67,8 @@
         </div>
     </div>
 </div>
-<br /><br />
+<br />
+<br />
 <div class="container">
     <div class="row bg-danger rounded-lg">
         <div class="col-4 align-self-center text-center">
@@ -80,7 +84,8 @@
         </div>
     </div>
 </div>
-<br /><br />
+<br />
+<br />
 <div class="container text-center">
     <h2>Descubre el Perú, elige tu destino</h2>
 </div>
@@ -102,6 +107,49 @@
 <!-- nuestra Promesa -->
 <partial name="Index/_NuestraPromesa" />
 
-<br /><br /><br /><br />
+<br />
+<br />
+<br />
+<br />
 <!-- Formas u opciones de pago -->
 <partial name="Index/_OpcionesPago" />
+@if (ViewBag.Succeeded == "Se Registro")
+{
+    @section Scripts{
+        <script>
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                button: "Aww yiss!",
+            });
+        </script>
+    }
+}
+else if (ViewBag.Succeeded == "No se Registro")
+{
+
+    @section Scripts{
+        <script>
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success",
+                button: "Aww yiss!",
+            });
+        </script>
+    }
+}
+else
+{
+    @section Scripts{
+        <script>
+            swal({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "error",
+                button: "Aww yiss!",
+            });
+        </script>
+    }
+}

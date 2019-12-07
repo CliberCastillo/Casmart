@@ -126,3 +126,11 @@ $(document).ready(function () {
         $(this).css("width", "30");
     });
 });
+//$("#registrar").click(function () {
+//    swal({
+//        title: "Good job!",
+//        text: "You clicked the button!",
+//        icon: "success",
+//        button: "Aww yiss!",
+//    });
+//});
