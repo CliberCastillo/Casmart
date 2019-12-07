@@ -113,43 +113,8 @@
 <br />
 <!-- Formas u opciones de pago -->
 <partial name="Index/_OpcionesPago" />
-@if (ViewBag.Succeeded == "Se Registro")
-{
-    @section Scripts{
-        <script>
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                icon: "success",
-                button: "Aww yiss!",
-            });
-        </script>
-    }
-}
-else if (ViewBag.Succeeded == "No se Registro")
-{
 
-    @section Scripts{
-        <script>
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                icon: "success",
-                button: "Aww yiss!",
-            });
-        </script>
-    }
-}
-else
-{
-    @section Scripts{
-        <script>
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                icon: "error",
-                button: "Aww yiss!",
-            });
-        </script>
-    }
+
+@section Scripts{
+<script src="~/js/site.js"></script>
 }

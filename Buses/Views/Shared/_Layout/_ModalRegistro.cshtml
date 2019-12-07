@@ -1,4 +1,4 @@
-﻿<form asp-action="CreateUser" asp-controller="Account">
+﻿<form asp-action="" asp-controller="">
     <div class="modal fade" id="ModalRegistrarme" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
@@ -10,13 +10,13 @@
                 </div>
                 <div class="modal-body">
                     <label class="font-weight-bold">Email</label>
-                    <input type="text" class="form-control" name="Email" required />
+                    <input type="text" class="form-control" name="Email" id="Email" required />
                     <label class="font-weight-bold">Contraseña</label>
-                    <input type="password" class="form-control" name="Contraseña" required />
+                    <input type="password" class="form-control" name="Contraseña" id="Contraseña" required />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                    <button type="submit" class="btn btn-primary" id="registrar">Registrarme</button>
+                    <button type="submit" class="btn btn-primary" id="btnRegistrar">Registrarme</button>
                 </div>
             </div>
         </div>

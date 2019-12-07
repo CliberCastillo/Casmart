@@ -38,25 +38,24 @@ namespace Buses.Controllers
             }
             return RedirectToAction("Login");
         }
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(NewUserViewModel model)
+        [HttpGet]
+        public async Task<JsonResult> CreateUser(string Email, string Contraseña)
         {
+            var variable = 0;
             var resultado = await _userManager.CreateAsync(
                     new AplicationUser
                     {
-                        UserName = model.Email,
-                        Email = model.Email
-                    }, model.Contraseña
+                        UserName = Email,
+                        Email = Email
+                    }, Contraseña
                 );
             if (resultado.Succeeded)
             {
-                ViewBag.Succeeded = "Se Registro";
-                return RedirectToAction("Index", "PaginaPrincipal");
+                variable = 1;
             }
             {
-                ViewBag.Falied = "No se Registro";
-                return RedirectToAction("Index", "PaginaPrincipal");
             }
+                return Json(variable);
         }
         public async Task<IActionResult> Logout()
         {

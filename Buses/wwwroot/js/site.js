@@ -134,3 +134,29 @@ $(document).ready(function () {
 //        button: "Aww yiss!",
 //    });
 //});
+//swal({
+//    title: "Good job!",
+//    text: "You clicked the button!",
+//    icon: "success",
+//    button: "Aww yiss!",
+//});
+$(function () {
+    $("#btnRegistrar").click(function (e) {
+        var email = $("#Email").val();
+        var contraseña = $("#Contraseña").val();
+        $.ajax({
+            url: '/Account/CreateUser',
+            type: 'GET',
+            dataType: 'Json',
+            contentType: 'application/json; charset=utf-8',
+            data: { Email: email, Contraseña: contraseña },
+            success: function (data) {
+                alert(data);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+
+    });
+});
