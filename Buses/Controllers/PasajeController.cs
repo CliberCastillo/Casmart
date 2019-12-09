@@ -14,6 +14,7 @@ namespace Buses.Controllers
         {
             _mantenimientoViaje = mantenimientoViaje;
         }
+        [HttpPost]
         public IActionResult Index(string origen, string destino, DateTime fecha)
         {
             var ltsViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(origen, destino, fecha);

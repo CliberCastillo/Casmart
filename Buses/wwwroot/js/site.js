@@ -18,9 +18,7 @@ $(document).ready(function () {
     $("#imagenTuristico").mouseout(function () {
         $(this).css("width", "80");
     });
-});
-//////////////////////////////
-$(document).ready(function () {
+
     $("#visa").mouseover(function () {
         $(this).css("width", "80");
     });
@@ -28,9 +26,7 @@ $(document).ready(function () {
     $("#visa").mouseout(function () {
         $(this).css("width", "70");
     });
-});
 
-$(document).ready(function () {
     $("#american").mouseover(function () {
         $(this).css("width", "80");
     });
@@ -38,10 +34,7 @@ $(document).ready(function () {
     $("#american").mouseout(function () {
         $(this).css("width", "70");
     });
-});
 
-
-$(document).ready(function () {
     $("#mastercard").mouseover(function () {
         $(this).css("width", "80");
     });
@@ -49,10 +42,7 @@ $(document).ready(function () {
     $("#mastercard").mouseout(function () {
         $(this).css("width", "70");
     });
-});
 
-
-$(document).ready(function () {
     $("#pagoEfectivo").mouseover(function () {
         $(this).css("width", "144");
     });
@@ -60,10 +50,7 @@ $(document).ready(function () {
     $("#pagoEfectivo").mouseout(function () {
         $(this).css("width", "126");
     });
-});
 
-
-$(document).ready(function () {
     $("#diners").mouseover(function () {
         $(this).css("width", "80");
     });
@@ -71,10 +58,7 @@ $(document).ready(function () {
     $("#diners").mouseout(function () {
         $(this).css("width", "70");
     });
-});
 
-
-$(document).ready(function () {
     $("#paypal").mouseover(function () {
         $(this).css("width", "80");
     });
@@ -82,9 +66,7 @@ $(document).ready(function () {
     $("#paypal").mouseout(function () {
         $(this).css("width", "70");
     });
-});
 
-$(document).ready(function () {
     $("#linkedin").mouseover(function () {
         $(this).css("width", "40");
     });
@@ -92,10 +74,7 @@ $(document).ready(function () {
     $("#linkedin").mouseout(function () {
         $(this).css("width", "30");
     });
-});
 
-
-$(document).ready(function () {
     $("#youtube").mouseover(function () {
         $(this).css("width", "40");
     });
@@ -103,60 +82,46 @@ $(document).ready(function () {
     $("#youtube").mouseout(function () {
         $(this).css("width", "30");
     });
-});
 
-
-$(document).ready(function () {
     $("#whatsapp").mouseover(function () {
         $(this).css("width", "40");
     });
 
-    $("#whatsapp").mouseout(function () {
-        $(this).css("width", "30");
-    });
-});
-
-
-$(document).ready(function () {
     $("#instagram").mouseover(function () {
         $(this).css("width", "40");
     });
 
-    $("#instagram").mouseout(function () {
+    $("#instagram, #whatsapp, #youtube").mouseout(function () {
         $(this).css("width", "30");
     });
-});
-//$("#registrar").click(function () {
-//    swal({
-//        title: "Good job!",
-//        text: "You clicked the button!",
-//        icon: "success",
-//        button: "Aww yiss!",
-//    });
-//});
 
-$(function () {
     $("#btnRegistrar").click(function (e) {
+        e.preventDefault();
         var email = $("#Email").val();
         var contraseña = $("#Contraseña").val();
         $.ajax({
             url: '/Account/CreateUser',
             type: 'GET',
             dataType: 'Json',
+            async: false,
             contentType: 'application/json; charset=utf-8',
             data: { Email: email, Contraseña: contraseña },
-            success: function (data) {
+            success: function (data, textStatus, jQxhr) {
                 swal({
                     title: "Good job!",
                     text: "You clicked the button!",
                     icon: "success",
                     button: "Aww yiss!",
                 });
+                alert(data);
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 alert(errorThrown);
             }
         });
 
+        alert("sss");
+
     });
+
 });

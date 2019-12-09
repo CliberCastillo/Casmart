@@ -53,9 +53,11 @@ namespace Buses.Controllers
             {
                 variable = 1;
             }
+            else
             {
+                variable = 2;
             }
-                return Json(variable);
+            return Json(variable);
         }
         public async Task<IActionResult> Logout()
         {

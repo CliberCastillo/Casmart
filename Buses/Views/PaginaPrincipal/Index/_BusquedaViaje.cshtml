@@ -8,45 +8,40 @@
     </div>
     <br />
     <br />
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2">
-            <select class="form-control redondeadonorelieve">
-                <option value="volvo" class="font-weight-bold">- Origen -</option>
-                @foreach (var item in Model)
-                {
-                    <option value="@item.Cpostal">@item.NombreAgencia</option>
-                }
-            </select>
-        </div>
-        <div class="col-2">
-            <select class="form-control redondeadonorelieve">
-                <option value="volvo" class="font-weight-bold">- Destino -</option>
-                @foreach (var item in Model)
-                {
-                    <option value="@item.Cpostal">@item.NombreAgencia</option>
-                }
-            </select>
-        </div>
-        <div class="col-2">
-            <div class="form-group row">
-                <div class="col-12">
-                    <input class="form-control redondeadonorelieve" type="date" id="dtpInicio">
+    <form asp-action="Index" asp-controller="Pasaje">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-2">
+                <select class="form-control redondeadonorelieve">
+                    <option value="volvo" class="font-weight-bold">- Origen -</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Cpostal">@item.NombreAgencia</option>
+                    }
+                </select>
+            </div>
+            <div class="col-2">
+                <select class="form-control redondeadonorelieve">
+                    <option value="volvo" class="font-weight-bold">- Destino -</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.Cpostal">@item.NombreAgencia</option>
+                    }
+                </select>
+            </div>
+            <div class="col-2">
+                <div class="form-group row">
+                    <div class="col-12">
+                        <input class="form-control redondeadonorelieve" type="date" id="dtpInicio">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-2">
-            <div class="form-group row">
-                <div class="col-12">
-                    <input class="form-control redondeadonorelieve" type="date" id="dtpFin">
-                </div>
+            <div class="col-2">
+                <a class="btn colorPagina text-white font-weight-bold form-control" id="regis">Buscar</a>
             </div>
+            <div class="col-1"></div>
         </div>
-        <div class="col-2">
-            <a class="btn colorPagina text-white font-weight-bold form-control" id="regis" >Buscar</a>
-        </div>
-        <div class="col-1"></div>
-    </div>
+    </form>
     <br />
     <br />
     <br />
