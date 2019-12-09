@@ -18,8 +18,11 @@ namespace Buses.Controllers
         }
         public IActionResult Index()
         {
-            var viajes = _mantenimientoViaje.ObtenerListadoAgencia();
-            return View(viajes);
+            AgenciaViajesViewModel ltsAgencia = new AgenciaViajesViewModel
+            {
+                Agencias = _mantenimientoViaje.ObtenerListadoAgencia()
+            };
+            return View(ltsAgencia);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

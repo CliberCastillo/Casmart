@@ -1,5 +1,4 @@
-﻿@model List<Buses.Entities.Agencia>
-<div class="imagenesfondo">
+﻿<div class="imagenesfondo">
     <br />
     <br />
     <div class="mt-4 text-center">
@@ -8,36 +7,38 @@
     </div>
     <br />
     <br />
-    <form asp-action="Index" asp-controller="Pasaje">
+    <form asp-action="Index" asp-controller="Pasaje" method="post" class="container">
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col-2">
-                <select class="form-control redondeadonorelieve">
-                    <option value="volvo" class="font-weight-bold">- Origen -</option>
-                    @foreach (var item in Model)
+            <div class="col-3">
+                <select class="form-control redondeadonorelieve" name="Origen">
+                    <option value="0" class="font-weight-bold">- Origen -</option>
+                    @foreach (var item in Model.Agencias)
                     {
-                        <option value="@item.Cpostal">@item.NombreAgencia</option>
+                        <option value="@item.NombreAgencia">@item.NombreAgencia</option>
                     }
                 </select>
             </div>
-            <div class="col-2">
-                <select class="form-control redondeadonorelieve">
-                    <option value="volvo" class="font-weight-bold">- Destino -</option>
-                    @foreach (var item in Model)
+            <div class="col-3">
+                <select class="form-control redondeadonorelieve" name="Destino">
+                    <option value="0" class="font-weight-bold">- Destino -</option>
+                    @foreach (var item in Model.Agencias)
                     {
-                        <option value="@item.Cpostal">@item.NombreAgencia</option>
+                        <option value="@item.NombreAgencia">@item.NombreAgencia</option>
                     }
                 </select>
             </div>
-            <div class="col-2">
+            <div class="col-3">
                 <div class="form-group row">
-                    <div class="col-12">
-                        <input class="form-control redondeadonorelieve" type="date" id="dtpInicio">
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" name="Fecha" data-target="#datetimepicker1" />
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-2">
-                <a class="btn colorPagina text-white font-weight-bold form-control" id="regis">Buscar</a>
+            <div class="col-3">
+                <button type="submit" class="btn btn-danger text-white font-weight-bold form-control">Buscar</button>
             </div>
             <div class="col-1"></div>
         </div>

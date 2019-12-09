@@ -1,4 +1,4 @@
-﻿
+﻿@model Buses.Models.AgenciaViajesViewModel
 @{
     ViewData["Title"] = "Pagina Principal";
 }
@@ -92,7 +92,7 @@
 <partial name="Index/_Slider" />
 <br />
 <div class="container">
-    @foreach (var item in Model)
+    @foreach (var item in Model.Agencias)
     {
         <div class="card mt-2 mb-2 ">
             <div class="card-header">@item.NombreAgencia</div>

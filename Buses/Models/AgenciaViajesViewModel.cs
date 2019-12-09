@@ -10,9 +10,9 @@ namespace Buses.Models
     {
         public AgenciaViajesViewModel()
         {
-            agencias = new List<Agencia>();
+            Agencias = new List<Agencia>();
         }
-        public List<Agencia> agencias { get; set; }
+        public List<Agencia> Agencias { get; set; }
         public string Origen { get; set; }
         public string Destino { get; set; }
         public DateTime Fecha { get; set; }

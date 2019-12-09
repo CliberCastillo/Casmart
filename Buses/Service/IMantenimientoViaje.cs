@@ -10,6 +10,6 @@ namespace Buses.Service
     public interface IMantenimientoViaje
     {
         List<Agencia> ObtenerListadoAgencia();
-        List<ItinerarioViaje> ObtenerItinerarioViaje(string origen, string destino, DateTime fechaViaje);
+        List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes);
     }
 }

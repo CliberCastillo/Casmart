@@ -1,4 +1,5 @@
 ﻿using Buses.Entities;
+using Buses.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace Buses.Service
             _context = context;
         }
 
-        public List<ItinerarioViaje> ObtenerItinerarioViaje(string origen, string destino, DateTime fechaViaje)
+        public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
         {
-            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == origen && x.AgenciaDestino == destino && x.HoraViaje == fechaViaje).ToList();
+            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino && x.HoraViaje == viajes.Fecha).ToList();
         }
 
         public List<Agencia> ObtenerListadoAgencia()

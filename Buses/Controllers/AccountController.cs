@@ -41,7 +41,7 @@ namespace Buses.Controllers
         [HttpGet]
         public async Task<JsonResult> CreateUser(string Email, string Contraseña)
         {
-            var variable = 0;
+            var variable = false;
             var resultado = await _userManager.CreateAsync(
                     new AplicationUser
                     {
@@ -51,11 +51,7 @@ namespace Buses.Controllers
                 );
             if (resultado.Succeeded)
             {
-                variable = 1;
-            }
-            else
-            {
-                variable = 2;
+                variable = true;
             }
             return Json(variable);
         }

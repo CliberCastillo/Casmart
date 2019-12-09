@@ -17,6 +17,7 @@ namespace Buses.Entities
         public string AgenciaDestino { get; set; }
         public string IdAgencia { get; set; }
         public DateTime HoraViaje { get; set; }
+        //public string Hora { get; set; }
         public decimal? PrecioViaje { get; set; }
 
         public Agencia IdAgenciaNavigation { get; set; }

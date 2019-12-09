@@ -96,9 +96,10 @@ $(document).ready(function () {
     });
 
     $("#btnRegistrar").click(function (e) {
-        e.preventDefault();
         var email = $("#Email").val();
         var contraseña = $("#Contraseña").val();
+        $("#Email").val('');
+        $("#Contraseña").val('');
         $.ajax({
             url: '/Account/CreateUser',
             type: 'GET',
@@ -107,20 +108,33 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf-8',
             data: { Email: email, Contraseña: contraseña },
             success: function (data, textStatus, jQxhr) {
-                swal({
-                    title: "Good job!",
-                    text: "You clicked the button!",
-                    icon: "success",
-                    button: "Aww yiss!",
-                });
-                alert(data);
+                if (data) {
+                    swal({
+                        title: "Registrado!",
+                        text: "Se registró correctamente :D!",
+                        icon: "success",
+                        button: "Aceptar"
+                    });
+                }
+                else {
+                    swal({
+                        title: "No Registrado!",
+                        text: "No se registró, por favor ingresar los datos requeridos :D!",
+                        icon: "error",
+                        button: "Aceptar"
+                    });
+                }
+                $('#ModalRegistrarme').modal('hide');
             },
             error: function (jqXhr, textStatus, errorThrown) {
-                alert(errorThrown);
+                swal({
+                    title: "Error!",
+                    text: "Por favor completar todo los campos requeridos",
+                    icon: "error",
+                    button: "Aceptar"
+                });
             }
         });
-
-        alert("sss");
 
     });
 

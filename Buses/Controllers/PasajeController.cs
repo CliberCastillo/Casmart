@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Buses.Service;
 using Microsoft.AspNetCore.Mvc;
 
+using Buses.Models;
+
 namespace Buses.Controllers
 {
     public class PasajeController : Controller
@@ -15,9 +17,9 @@ namespace Buses.Controllers
             _mantenimientoViaje = mantenimientoViaje;
         }
         [HttpPost]
-        public IActionResult Index(string origen, string destino, DateTime fecha)
+        public IActionResult Index(AgenciaViajesViewModel viajes)
         {
-            var ltsViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(origen, destino, fecha);
+            var ltsViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(viajes);
             return View(ltsViajesDisponibles);
         }
     }
