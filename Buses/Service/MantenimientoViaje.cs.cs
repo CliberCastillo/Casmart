@@ -17,12 +17,18 @@ namespace Buses.Service
 
         public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
         {
-            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino && x.HoraViaje == viajes.Fecha).ToList();
+            DateTime FechaViaje = Convert.ToDateTime(viajes.FechaViaje);
+            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino && x.HoraViaje == FechaViaje).ToList();
         }
 
         public List<Agencia> ObtenerListadoAgencia()
         {
             return _context.Agencia.ToList();
+        }
+
+        public List<ItinerarioViaje> ObtenerListadoAgenciaPromociones()
+        {
+            return _context.ItinerarioViaje.Where(x => x.PrecioViaje <= 25).ToList();
         }
     }
 }

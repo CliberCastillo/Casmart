@@ -20,7 +20,8 @@ namespace Buses.Controllers
         {
             AgenciaViajesViewModel ltsAgencia = new AgenciaViajesViewModel
             {
-                Agencias = _mantenimientoViaje.ObtenerListadoAgencia()
+                Agencias = _mantenimientoViaje.ObtenerListadoAgencia(),
+                AgenciasPromociones = _mantenimientoViaje.ObtenerListadoAgenciaPromociones()
             };
             return View(ltsAgencia);
         }

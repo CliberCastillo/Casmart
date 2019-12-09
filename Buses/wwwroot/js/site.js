@@ -96,17 +96,22 @@ $(document).ready(function () {
     });
 
     $("#btnRegistrar").click(function (e) {
+        var nombre = $("#Nombre").val();
         var email = $("#Email").val();
-        var contraseña = $("#Contraseña").val();
-        $("#Email").val('');
-        $("#Contraseña").val('');
+        var contraseña = $("#txtPassword").val();
+        var contraseña1 = $("#txtPassword2").val();
+        nombre.val('');
+        email.val('');
+        contraseña.val('');
+        contraseña1.val('');
+
         $.ajax({
             url: '/Account/CreateUser',
             type: 'GET',
             dataType: 'Json',
             async: false,
             contentType: 'application/json; charset=utf-8',
-            data: { Email: email, Contraseña: contraseña },
+            data: { Nombre: nombre, Email: email, Contraseña: contraseña },
             success: function (data, textStatus, jQxhr) {
                 if (data) {
                     swal({
@@ -119,9 +124,10 @@ $(document).ready(function () {
                 else {
                     swal({
                         title: "No Registrado!",
-                        text: "No se registró, por favor ingresar los datos requeridos :D!",
+                        text: "No se registró, por favor ingresar los datos requeridos :C!",
                         icon: "error",
                         button: "Aceptar"
+
                     });
                 }
                 $('#ModalRegistrarme').modal('hide');
@@ -139,3 +145,17 @@ $(document).ready(function () {
     });
 
 });
+
+function mostrarPassword() {
+    var cambio = document.getElementById("txtPassword");
+    var cambio2 = document.getElementById("txtPassword2");
+    if (cambio.type === "password" & cambio.type === "password") {
+        cambio.type = "text";
+        cambio2.type = "text";
+        $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    } else {
+        cambio.type = "password";
+        cambio2.type = "password";
+        $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+}

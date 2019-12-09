@@ -11,5 +11,7 @@ namespace Buses.Service
     {
         List<Agencia> ObtenerListadoAgencia();
         List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes);
+        List<ItinerarioViaje> ObtenerListadoAgenciaPromociones();
+
     }
 }
