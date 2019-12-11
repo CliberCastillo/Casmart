@@ -17,8 +17,7 @@ namespace Buses.Service
 
         public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
         {
-            DateTime FechaViaje = Convert.ToDateTime(viajes.FechaViaje);
-            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino && x.HoraViaje == FechaViaje).ToList();
+            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino && x.HoraViaje == Convert.ToDateTime(viajes.FechaViaje)).ToList();
         }
 
         public List<Agencia> ObtenerListadoAgencia()
