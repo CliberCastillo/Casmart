@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <h3>Promociones</h3>
+    <br />
+    @foreach (var lstAgenciasPromociones in Model.AgenciasPromocionesAgrupado)
+    {
+        <div class="row text-center">
+            @foreach (var agenciaPromocion in lstAgenciasPromociones)
+            {
+                <div class="col-3" id="mochila">
+                    <div class="card negroBorder" style="width: 18rem;">
+                        <div class="text-center">
+                            <img src="~/images/mochilag.png" class="" alt="imagenDeMochila" id="" width="170">
+                            <div class="card-body">
+                                <h5 class="card-title">@agenciaPromocion.IdItinerario</h5>
+                                <p class="card-text">
+                                    Válido para antiguos y nuevos usuarios
+                                </p>
+                                <a href="#" class="btn btn-outline-danger">Viajar a @agenciaPromocion.AgenciaDestino</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

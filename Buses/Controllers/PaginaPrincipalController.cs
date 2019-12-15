@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Buses.Models;
 using Buses.Service;
+using Buses.Common;
 
 namespace Buses.Controllers
 {
@@ -18,11 +19,16 @@ namespace Buses.Controllers
         }
         public IActionResult Index()
         {
+            var lstAgenciaPromociones = _mantenimientoViaje.ObtenerListadoAgenciaPromociones()
+                .ChunkBy(Constantes.CantidadColumnas);
+
             AgenciaViajesViewModel ltsAgencia = new AgenciaViajesViewModel
             {
                 Agencias = _mantenimientoViaje.ObtenerListadoAgencia(),
-                AgenciasPromociones = _mantenimientoViaje.ObtenerListadoAgenciaPromociones()
+                AgenciasPromocionesAgrupado = lstAgenciaPromociones
             };
+
+
             return View(ltsAgencia);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

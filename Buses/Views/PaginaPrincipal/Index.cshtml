@@ -1,7 +1,6 @@
 ﻿@model Buses.Models.AgenciaViajesViewModel
 @{
     ViewData["Title"] = "Pagina Principal";
-    var numero = 0;
 }
 <partial name="Index/_BusquedaViaje" />
 <br />
@@ -71,56 +70,6 @@
 <br />
 <br />
 <div class="container">
-    <h3>Promociones</h3>
-    <br />
-    @foreach (var item in Model.AgenciasPromociones)
-    {
-        <div class="row">
-
-            @if (numero == 0)
-            {
-                <div class="card mt-2 mb-2 col-4">
-                    <div class="card-header">@item.AgenciaDestino</div>
-                    <div class="card-header">@item.AgenciaDestino</div>
-                    <div class="card-body">
-                        @item.HoraViaje<br />
-                    </div>
-                    <div class="card-footer">@item.PrecioViaje</div>
-                </div>
-                numero++;
-            }
-            else if (numero == 1)
-            {
-                <div class="card mt-2 mb-2 col-4">
-                    <div class="card-header">@item.AgenciaDestino</div>
-                    <div class="card-header">@item.AgenciaDestino</div>
-                    <div class="card-body">
-                        @item.HoraViaje<br />
-                    </div>
-                    <div class="card-footer">@item.PrecioViaje</div>
-                </div>
-                numero++;
-                break;
-            }
-            else
-            {
-                <div class="card mt-2 mb-2 col-4">
-                    <div class="card-header">@item.AgenciaDestino</div>
-                    <div class="card-header">@item.AgenciaDestino</div>
-                    <div class="card-body">
-                        @item.HoraViaje<br />
-                    </div>
-                    <div class="card-footer">@item.PrecioViaje</div>
-                </div>
-                numero=0;
-                break;
-            }
-        </div>
-    }
-</div>
-<br />
-<br />
-<div class="container">
     <div class="row bg-danger rounded-lg">
         <div class="col-4 align-self-center text-center">
             <h3 class="text-white">Asegura tu viaje con</h3>
@@ -135,6 +84,8 @@
         </div>
     </div>
 </div>
+<br /><br />
+<partial name="Index/_Promociones" />
 <br />
 <br />
 <div class="container text-center">

@@ -49,7 +49,7 @@ $("#btnRegistrarme").click(function (e) {
         success: function (data, textStatus, jQxhr) {
             if (data) {
                 swal({
-                    title: "Registrado!",
+                    title: "Satisfactorio!",
                     text: "Se registró correctamente :D!",
                     icon: "success",
                     button: "Aceptar"
@@ -57,7 +57,7 @@ $("#btnRegistrarme").click(function (e) {
             }
             else {
                 swal({
-                    title: "No Registrado!",
+                    title: "Error!",
                     text: "No se registró, por favor ingresar los datos requeridos :C!",
                     icon: "error",
                     button: "Aceptar"

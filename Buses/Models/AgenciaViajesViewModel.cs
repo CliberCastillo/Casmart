@@ -12,9 +12,11 @@ namespace Buses.Models
         {
             Agencias = new List<Agencia>();
             AgenciasPromociones = new List<ItinerarioViaje>();
+            AgenciasPromocionesAgrupado = new List<List<ItinerarioViaje>>();
         }
         public List<Agencia> Agencias { get; set; }
         public List<ItinerarioViaje> AgenciasPromociones { get; set; }
+        public List<List<ItinerarioViaje>> AgenciasPromocionesAgrupado { get; set; }
         public string Origen { get; set; }
         public string Destino { get; set; }
         public string FechaViaje { get; set; }
