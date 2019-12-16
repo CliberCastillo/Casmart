@@ -9,9 +9,12 @@
                 <li class="nav-item active">
                     <a class="nav-link text-white font-weight-bold" href="#">Destinos<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white font-weight-bold" asp-controller="Corporativo" asp-action="Index">Corporativo</a>
-                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-white font-weight-bold" asp-controller="Corporativo" asp-action="Index">Corporativo</a>
+                    </li>
+                }
             </ul>
         </div>
         <form class="form-inline my-2 my-lg-0 float-right">

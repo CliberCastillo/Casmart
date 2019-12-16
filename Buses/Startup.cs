@@ -42,6 +42,12 @@ namespace Buses
                 .AddEntityFrameworkStores<AgenciaBusesContext>()
                 .AddDefaultTokenProviders();
 
+            //services.ConfigureExternalCookie(options =>
+            //{
+            //    options.LoginPath = "/Corporativo/Index";
+            //    options.ReturnUrlParameter = "Login";
+            //});
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<IMantenimientoViaje, MantenimientoViaje>();
 
