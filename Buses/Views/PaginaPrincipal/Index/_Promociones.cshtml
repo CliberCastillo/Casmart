@@ -1,4 +1,5 @@
-﻿<div class="container">
+﻿
+<div class="container">
     <h3>Promociones</h3>
     <br />
     @foreach (var lstAgenciasPromociones in Model.AgenciasPromocionesAgrupado)
@@ -6,18 +7,16 @@
         <div class="row text-center">
             @foreach (var agenciaPromocion in lstAgenciasPromociones)
             {
-                <div class="col-3" id="mochila">
-                    <div class="card negroBorder" style="width: 18rem;">
-                        <div class="text-center">
-                            <img src="~/images/mochilag.png" class="" alt="imagenDeMochila" id="" width="170">
-                            <div class="card-body">
-                                <h5 class="card-title">@agenciaPromocion.IdItinerario</h5>
-                                <p class="card-text">
-                                    Válido para antiguos y nuevos usuarios
-                                </p>
-                                <a href="#" class="btn btn-outline-danger">Viajar a @agenciaPromocion.AgenciaDestino</a>
-                            </div>
-                        </div>
+                <div class="col-3 pt-2" id="promociones">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@Url.Content("~/images/Destinos/" + @agenciaPromocion.IdItinerario + ".jpg")" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title">@agenciaPromocion.AgenciaOrigen - @agenciaPromocion.AgenciaDestino</h5>
+                            <p class="card-text"><strong>@agenciaPromocion.PrecioViaje $</strong>&nbsp;&nbsp;&nbsp;&nbsp;<s class="text-danger">50.00 $</s></p>
+                            <a href="#" class="btn btn-outline-danger">Viajar a @agenciaPromocion.AgenciaDestino</a> |
+                            <a href="#" class="btn btn-outline-danger">Detalles</a>
+                            @*<a class="text-xl-left">@String.Format("{0:MM/dd/yyyy}", agenciaPromocion.HoraViaje)</a>*@
+                        </div> 
                     </div>
                 </div>
             }
