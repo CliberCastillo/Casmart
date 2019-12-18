@@ -1,4 +1,4 @@
-﻿
+﻿@model Buses.Models.AgenciaViajesViewModel
 <div class="fondoNavbar">
     <div class="container">
         <hr />
@@ -23,10 +23,15 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <p class="font-weight-bold text-white">Paises</p>
-                    <div class="text-white">
-                        Perú
-                    </div>
+                    <p class="font-weight-bold text-white">Agencias</p>
+                    <ul>
+                        @foreach (var item in Model.Agencias)
+                        {
+                            <li class="text-white">
+                                @item.NombreAgencia
+                            </li>
+                        }
+                    </ul>
                 </div>
                 <div class="col-3">
                     <br />

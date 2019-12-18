@@ -7,19 +7,42 @@
         <div class="row text-center">
             @foreach (var agenciaPromocion in lstAgenciasPromociones)
             {
-                <div class="col-3 pt-2" id="promociones">
-                    <div class="card" style="width: 18rem;">
+                <div class="col-3 pt-3 " id="promociones">
+                    <div class="card border border-dark" style="width: 17rem;">
                         <img src="@Url.Content("~/images/Destinos/" + @agenciaPromocion.IdItinerario + ".jpg")" class="card-img-top" />
                         <div class="card-body">
                             <h5 class="card-title">@agenciaPromocion.AgenciaOrigen - @agenciaPromocion.AgenciaDestino</h5>
                             <p class="card-text"><strong>@agenciaPromocion.PrecioViaje $</strong>&nbsp;&nbsp;&nbsp;&nbsp;<s class="text-danger">50.00 $</s></p>
-                            <a href="#" class="btn btn-outline-danger">Viajar a @agenciaPromocion.AgenciaDestino</a> |
-                            <a href="#" class="btn btn-outline-danger">Detalles</a>
+                            <a href="#" class="btn btn-danger mr-2 mb-2 pt-1 pb-1">Viajar a @agenciaPromocion.AgenciaDestino</a>
+                            <button type="button" id="btnDetallesViajePromocion" class="btn btn-outline-danger mb-2 pt-1 pb-1" data-toggle="modal" data-target="#exampleModalCenter">
+                                Detalles
+                            </button>
                             @*<a class="text-xl-left">@String.Format("{0:MM/dd/yyyy}", agenciaPromocion.HoraViaje)</a>*@
-                        </div> 
+                        </div>
                     </div>
                 </div>
             }
         </div>
     }
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Viajes En Promocion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Aprovecha y conoce los lugares mas visitados del perú, 
+                este cupo de descuento estará disponible solo por un periodo
+                de tiempo. <strong>¡Feliz Viaje!</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
 </div>

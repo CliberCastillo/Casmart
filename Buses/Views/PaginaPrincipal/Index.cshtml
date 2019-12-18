@@ -84,7 +84,8 @@
         </div>
     </div>
 </div>
-<br /><br />
+<br />
+<br />
 <partial name="Index/_Promociones" />
 <br />
 <br />
@@ -93,19 +94,6 @@
 </div>
 <partial name="Index/_Slider" />
 <br />
-<div class="container">
-    @foreach (var item in Model.Agencias)
-    {
-        <div class="card mt-2 mb-2 ">
-            <div class="card-header">@item.NombreAgencia</div>
-            <div class="card-body">
-                @item.Correo<br />
-                @item.Telefono
-            </div>
-            <div class="card-footer">@item.EstadoAgencia</div>
-        </div>
-    }
-</div>
 <!-- nuestra Promesa -->
 <partial name="Index/_NuestraPromesa" />
 
