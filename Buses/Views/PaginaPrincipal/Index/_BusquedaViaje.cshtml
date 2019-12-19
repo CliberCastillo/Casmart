@@ -2,15 +2,15 @@
     <br />
     <br />
     <div class="mt-4 text-center">
-        <h3>¡Llegaron los días Cyber WOW!</h3>
-        <h4>redBus la manera más fácil de comprar pasajes de bus</h4>
+        <h3>¡Elige tu destino y <strong>Viaja</strong>!</h3>
+        <h4><strong>Casmart</strong> la manera más fácil de comprar pasajes de bus</h4>
     </div>
     <br />
     <br />
-    <form asp-action="Index" asp-controller="Pasaje" method="post" class="container">
+    <form asp-action="Index" asp-controller="Pasaje" method="post" class="container" onsubmit="return validacion()">
         <div class="row">
             <div class="col-3">
-                <select class="form-control redondeadonorelieve" name="Origen">
+                <select class="form-control redondeadonorelieve" name="Origen" id="cboRutaOrigen" required>
                     <option value="0" class="font-weight-bold">- Origen -</option>
                     @foreach (var item in Model.Agencias)
                     {
@@ -19,7 +19,7 @@
                 </select>
             </div>
             <div class="col-3">
-                <select class="form-control redondeadonorelieve" name="Destino">
+                <select class="form-control redondeadonorelieve" name="Destino" id="cboRutaDestino" required>
                     <option value="0" class="font-weight-bold">- Destino -</option>
                     @foreach (var item in Model.Agencias)
                     {

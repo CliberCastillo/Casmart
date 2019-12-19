@@ -12,23 +12,6 @@
     }
 }
 
-//$("#botonIniciarSesion").click(function (e) {
-//    var txtCorreo = $("#txtCorreo").val();
-//    $.ajax({
-//        url: '/Account/Login',
-//        type: 'GET',
-//        dataType: 'Json',
-//        contentType: 'application/json; charset=utf-8',
-//        data: { correo: txtCorreo },
-//        success: function (data) {
-
-//        },
-//        error: function (jqXhr, textStatus, errorThrown) {
-//            console.log(errorThrown);
-//        }
-//    });
-//});
-
 $("#btnRegistrarme").click(function (e) {
     var nombre = $("#Nombre").val();
     var email = $("#Email").val();
@@ -76,3 +59,18 @@ $("#btnRegistrarme").click(function (e) {
     });
 });
 
+function validacion() {
+    var origen = $("#cboRutaOrigen option:selected").text();
+    var destino = $("#cboRutaDestino option:selected").text();
+    if (origen === "- Origen -") {
+        swal("Error!", "Por Favor seleccionar los campos requeridos")
+        return false;
+    }
+    else if (destino === "- Destino -") {
+        return false;
+    }
+    return true;
+}
+//$(document).on('change', '#cboRutaOrigen', function (event) {
+//    alert(nombres);
+//});

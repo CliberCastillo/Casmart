@@ -82,3 +82,7 @@ body {
 .bg-colorPagina {
     background-color: #d74f57;
 }
+.redondeadonorelieveWarning {
+    border-radius: 5px;
+    border: 2px solid rgb(255, 216, 0);
+}
