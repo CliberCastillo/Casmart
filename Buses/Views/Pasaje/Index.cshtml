@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
 <div class="container mt-3">
-    <p class="bg-danger rounded pt-1 pb-1 text-center font-weight-bold text-white">Seleccione su hora de viaje</p>
+    <p class="bg-colorPagina rounded pt-1 pb-1 text-center font-weight-bold text-white">Seleccione su hora de viaje</p>
     <h5>
         Viaje de <strong class="text-danger">@ViewBag.Origen</strong>
         a <strong class="text-danger">@ViewBag.Destino</strong>
@@ -33,10 +33,10 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <img src="@Url.Content("~/images/Destinos/" + item.AgenciaDestino+ ".jpg")" />
+                    <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="120px" class="bordesNegro"/>
                 </div>
                 <div class="col-2 text-center">
-                    <a class="btn btn-danger font-weight-bold text-white">
+                    <a class="btn btn-danger font-weight-bold text-white mt-4">
                         Comprar
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 </div>
             </div>
-            <hr />
+            <hr/>
         }
     </div>
     <br /><br /><br /><br /><br />
