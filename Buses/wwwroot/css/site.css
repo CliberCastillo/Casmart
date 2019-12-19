@@ -75,3 +75,7 @@ body {
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
     box-shadow: 10px 10px 5px 0px #EAEDED;
 }
+.bordesNegro{
+    border: #000000;
+    border-radius: 6px;
+}

@@ -17,7 +17,7 @@ namespace Buses.Service
 
         public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
         {
-            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino && x.HoraViaje == Convert.ToDateTime(viajes.FechaViaje)).ToList();
+            return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino).ToList();
         }
 
         public List<Agencia> ObtenerListadoAgencia()

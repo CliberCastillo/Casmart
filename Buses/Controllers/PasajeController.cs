@@ -19,8 +19,10 @@ namespace Buses.Controllers
         [HttpPost]
         public IActionResult Index(AgenciaViajesViewModel viajes)
         {
-            var ltsViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(viajes);
-            return View(ltsViajesDisponibles);
+            ViewBag.Origen = viajes.Origen;
+            ViewBag.Destino = viajes.Destino;
+            var lstViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(viajes);
+            return View(lstViajesDisponibles);
         }
     }
 }

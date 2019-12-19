@@ -1,6 +1,52 @@
-﻿
+﻿@model List<Buses.Entities.ItinerarioViaje>
 @{
     ViewData["Title"] = "Index";
 }
+<div class="container mt-3">
+    <p class="bg-danger rounded pt-1 pb-1 text-center font-weight-bold text-white">Seleccione su hora de viaje</p>
+    <h5>
+        Viaje de <strong class="text-danger">@ViewBag.Origen</strong>
+        a <strong class="text-danger">@ViewBag.Destino</strong>
+    </h5>
+    <div class="rounded">
+        <br />
+        @foreach (var item in Model)
+        {
+            <hr />
+            <div class="row">
+                <div class="col-2 text-center">
+                    <div class="h5 font-weight-bold">@item.AgenciaOrigen</div>
+                    <div>@String.Format("{0:HH:mm}", item.HoraViaje)</div>
+                    <a href="#">Ubicación</a>
+                </div>
+                <div class="col-2 text-center">
+                    <div class="h5 font-weight-bold">@item.AgenciaDestino</div>
+                    <div>@String.Format("{0:HH:mm}", item.HoraViaje)</div>
+                    <a href="#">Ubicación</a>
+                </div>
+                <div class="col-2 text-center">
+                    <div class="h5 font-weight-bold">
+                        Precio
+                    </div>
+                    <div>
+                        @item.PrecioViaje Soles
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="@Url.Content("~/images/Destinos/" + item.AgenciaDestino+ ".jpg")" />
+                </div>
+                <div class="col-2 text-center">
+                    <a class="btn btn-danger font-weight-bold text-white">
+                        Comprar
+                    </a>
+                </div>
+                <div class="col-2">
 
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+    <br /><br /><br /><br /><br />
+</div>
 
