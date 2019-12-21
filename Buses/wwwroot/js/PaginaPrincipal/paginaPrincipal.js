@@ -66,7 +66,12 @@ function validacion() {
         swal("Error!", "Por Favor seleccionar los campos requeridos")
         return false;
     }
+    else if (origen != "- Origen -" && destino === "- Destino -") {
+        swal("Error!", "Por Favor seleccionar los campos requeridos")
+        return false;
+    }
     else if (destino === "- Destino -") {
+        swal("Error!", "Por Favor seleccionar los campos requeridos")
         return false;
     }
     return true;

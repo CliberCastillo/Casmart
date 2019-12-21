@@ -12,39 +12,21 @@
         <br />
         @foreach (var item in Model)
         {
-            <hr />
-            <div class="row">
-                <div class="col-2 text-center">
-                    <div class="h5 font-weight-bold">@item.AgenciaOrigen</div>
-                    <div>@String.Format("{0:HH:mm}", item.HoraViaje)</div>
-                    <a href="#">Ubicación</a>
+            <br />
+            <div class="card text-center">
+                <div class="card-header">
+                    <div class="h6"><strong>@item.AgenciaDestino</strong> &nbsp;&nbsp;&nbsp; Fecha viaje: @String.Format("{0:dd/mm/yyyy}", item.HoraViaje) &nbsp;&nbsp;&nbsp;hora viaje: @String.Format("{0:HH:mm}", item.HoraViaje)</div>
+                    
                 </div>
-                <div class="col-2 text-center">
-                    <div class="h5 font-weight-bold">@item.AgenciaDestino</div>
-                    <div>@String.Format("{0:HH:mm}", item.HoraViaje)</div>
-                    <a href="#">Ubicación</a>
+                <div class="card-body">
+                    <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="120px" class="bordesNegro" /> &nbsp;&nbsp;&nbsp;-------------------------
                 </div>
-                <div class="col-2 text-center">
-                    <div class="h5 font-weight-bold">
-                        Precio
-                    </div>
-                    <div>
-                        @item.PrecioViaje Soles
-                    </div>
-                </div>
-                <div class="col-2">
-                    <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="120px" class="bordesNegro"/>
-                </div>
-                <div class="col-2 text-center">
-                    <a class="btn btn-danger font-weight-bold text-white mt-4">
+                <div class="card-footer text-muted">
+                    <a class="btn btn-danger font-weight-bold text-white">
                         Comprar
                     </a>
                 </div>
-                <div class="col-2">
-
-                </div>
             </div>
-            <hr/>
         }
     </div>
     <br /><br /><br /><br /><br />
