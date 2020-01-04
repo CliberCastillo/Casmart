@@ -17,6 +17,7 @@ namespace Buses.Entities
         public string IdItinerario { get; set; }
         public DateTime? FechaViaje { get; set; }
         public string Estado { get; set; }
+        public int NumeroAsieto { get; set; }
 
         public Empleado IdEmpleadoNavigation { get; set; }
         public ItinerarioViaje IdItinerarioNavigation { get; set; }

@@ -24,5 +24,9 @@ namespace Buses.Controllers
             var lstViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(viajes);
             return View(lstViajesDisponibles);
         }
+        public IActionResult Asientos()
+        {
+            return View();
+        }
     }
 }
