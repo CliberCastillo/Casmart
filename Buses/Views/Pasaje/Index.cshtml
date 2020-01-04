@@ -1,6 +1,7 @@
 ﻿@model List<Buses.Entities.ItinerarioViaje>
 @{
     ViewData["Title"] = "Index";
+    int nombre = 0;
 }
 <div class="container mt-3">
     <p class="bg-colorPagina rounded pt-1 pb-1 text-center font-weight-bold text-white">Seleccione su hora de viaje</p>
@@ -16,19 +17,64 @@
             <div class="card text-center">
                 <div class="card-header">
                     <div class="h6"><strong>@item.AgenciaDestino</strong> &nbsp;&nbsp;&nbsp; Fecha viaje: @String.Format("{0:dd/mm/yyyy}", item.HoraViaje) &nbsp;&nbsp;&nbsp;hora viaje: @String.Format("{0:HH:mm}", item.HoraViaje)</div>
-                    
+
                 </div>
                 <div class="card-body">
-                    <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="120px" class="bordesNegro" /> &nbsp;&nbsp;&nbsp;-------------------------
+                    <div class="row">
+                        <div class="col-2">
+
+                        </div>
+                        <div class="col-8">
+                            <img src="@Url.Content("~/images/Origen/" + item.IdAgencia+ ".jpg")" width="120px" class="bordesNegro" />&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+                            <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="120px" class="bordesNegro" />
+                        </div>
+                        <div class="col-2">
+                            <a class="btn btn-danger font-weight-bold text-white mt-4 ml-5">
+                                @item.PrecioViaje $
+                            </a>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <a class="btn btn-danger font-weight-bold text-white">
+                    <a class="btn btn-danger font-weight-bold text-white mr-3" id="comprarPasaje">
                         Comprar
+                    </a>
+                    @if (item.PrecioViaje > 20)
+                    {
+                        <a class="btn btn-danger font-weight-bold text-white mr-3">
+                            Reservar
+                        </a>
+                    }
+                    <a asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-outline-danger font-weight-bold text-dark mr-3">
+                        Ir Al Menu
                     </a>
                 </div>
             </div>
         }
     </div>
     <br /><br /><br /><br /><br />
+    @if (User.Identity.IsAuthenticated)
+        {
+            <button id="estaAutenticado">1</button>
+        }
+        else
+        {
+            <button id="noestaAutenticado">2</button>
+        }
 </div>
+@section Scripts{ 
+    <script>
+        $("#comprarPasaje").click(function () {
+            var estaAutenticado = $("#estaAutenticado").text();
+            var noestaAutenticado = $("#noestaAutenticado").text();
+            if (estaAutenticado == 1) {
+                alert("hola");
+            }
+            else {
+                alert("gaa");
+            }
+        });
+    </script>
+}
 
