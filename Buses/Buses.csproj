@@ -41,9 +41,4 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Pasaje\Index\" />
-    <Folder Include="wwwroot\js\Pasaje\" />
-  </ItemGroup>
-
 </Project>

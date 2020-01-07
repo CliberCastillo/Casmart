@@ -15,56 +15,39 @@
                 @foreach (var item in Model)
                 {
                     <br />
-                    <div class="card text-center">
+                    <div class="card text-center border-danger">
                         <div class="card-header">
                             <div class="h6"><strong>@item.AgenciaDestino</strong> &nbsp;&nbsp;&nbsp; Fecha viaje: @String.Format("{0:dd/mm/yyyy}", item.HoraViaje) &nbsp;&nbsp;&nbsp;hora viaje: @String.Format("{0:HH:mm}", item.HoraViaje)</div>
-
                         </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-2">
+                                <div class="row">
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-8">
+                                        <img src="@Url.Content("~/images/Origen/" + item.IdAgencia+ ".jpg")" width="150px" class="bordesNegro" />&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+                                        <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="150px" class="bordesNegro" />
+                                    </div>
+                                    <div class="col-2 text-left">
+                                        <a class="btn btn-danger font-weight-bold text-white mt-1 btn-sm mb-1">
+                                            @item.PrecioViaje $
+                                        </a>
 
+                                        <a asp-route-IdItinerario="@item.IdItinerario" asp-action="Asientos" asp-controller="Pasaje" class="btn btn-outline-danger btn-sm mb-1" id="comprarPasaje">
+                                            Comprar
+                                        </a>
+
+                                        @if (item.PrecioViaje > 20)
+                                        {
+                                            <button class="btn btn-outline-danger mr-3 btn-sm mb-1">Reservar</button>
+                                        }
+                                        <button asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-outline-danger mr-3 btn-sm">Ir Al Menu</button>
+                                    </div>
                                 </div>
-                                <div class="col-8">
-                                    <img src="@Url.Content("~/images/Origen/" + item.IdAgencia+ ".jpg")" width="120px" class="bordesNegro" />&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
-                                    <img src="@Url.Content("~/images/Destinos/" + item.IdItinerario+ ".jpg")" width="120px" class="bordesNegro" />
-                                </div>
-                                <div class="col-2">
-                                    <a class="btn btn-danger font-weight-bold text-white mt-1 ml-3">
-                                        @item.PrecioViaje $
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer text-muted">
-                            <a asp-action="Asientos" class="btn btn-outline-danger mr-3" id="comprarPasaje">
-                                Comprar
-                            </a>
-                            @if (item.PrecioViaje > 20)
-                            {
-                                <button class="btn btn-outline-danger mr-3">Reservar</button>
-                            }
-                            <button asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-outline-danger mr-3">Ir Al Menu</button>
                         </div>
                     </div>
                 }
             </div>
-            <div class="col-4">
-                <br /><br />
-                <div class="card">
-                    <div class="card-body  border">
-                            <p class="h5 ml-5 text-danger">Resumen de Compra</p>
-                        <div class="row">
-                            <div class="col-2">
-
-                            </div>
-                            <div class="col-10">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <partial name="Index/_ResuemenCompra"></partial>
         </div>
     </div>
     <br /><br /><br /><br /><br />

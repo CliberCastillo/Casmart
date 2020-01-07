@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Buses.Service
 {
-    public class MantenimientoViaje: IMantenimientoViaje
+    public class MantenimientoViaje : IMantenimientoViaje
     {
         private readonly AgenciaBusesContext _context;
         public MantenimientoViaje(AgenciaBusesContext context)
@@ -15,10 +15,22 @@ namespace Buses.Service
             _context = context;
         }
 
+        public ItinerarioViaje FechaYHoraViaje(string IdItinerario)
+        {
+            return _context.ItinerarioViaje.Where(x => x.IdItinerario == IdItinerario)
+                                                .Select(x => new ItinerarioViaje
+                                                {
+                                                    HoraViaje = x.HoraViaje,
+                                                    AgenciaOrigen = x.AgenciaOrigen,
+                                                    AgenciaDestino = x.AgenciaDestino,
+                                                    PrecioViaje = x.PrecioViaje
+                                                })
+                                                .SingleOrDefault();
+        }
+
         public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
         {
             return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino)
-                         
                                             .ToList();
         }
 
