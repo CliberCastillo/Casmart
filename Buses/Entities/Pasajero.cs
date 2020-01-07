@@ -8,7 +8,6 @@ namespace Buses.Entities
         public Pasajero()
         {
             Pasaje = new HashSet<Pasaje>();
-            Reserva = new HashSet<Reserva>();
             UsuarioPasajero = new HashSet<UsuarioPasajero>();
         }
 
@@ -22,7 +21,6 @@ namespace Buses.Entities
         public string Correo { get; set; }
 
         public ICollection<Pasaje> Pasaje { get; set; }
-        public ICollection<Reserva> Reserva { get; set; }
         public ICollection<UsuarioPasajero> UsuarioPasajero { get; set; }
     }
 }

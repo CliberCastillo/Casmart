@@ -409,11 +409,6 @@ namespace Buses.Entities
                     .HasMaxLength(6)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.IdEmpleadoNavigation)
-                    .WithMany(p => p.Pasaje)
-                    .HasForeignKey(d => d.IdEmpleado)
-                    .HasConstraintName("FK_PASAJE_IDEMPLEADO");
-
                 entity.HasOne(d => d.IdItinerarioNavigation)
                     .WithMany(p => p.Pasaje)
                     .HasForeignKey(d => d.IdItinerario)
@@ -540,12 +535,6 @@ namespace Buses.Entities
                     .HasForeignKey(d => d.IdItinerario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_RESERVA_IDITINERARIO");
-
-                entity.HasOne(d => d.IdPasajeroNavigation)
-                    .WithMany(p => p.Reserva)
-                    .HasForeignKey(d => d.IdPasajero)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_RESERVA_IDPASAJERO");
             });
 
             modelBuilder.Entity<UsuarioEmpleado>(entity =>

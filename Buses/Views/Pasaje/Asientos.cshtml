@@ -148,7 +148,10 @@
                 40
             </button>
         </div>
-        <div class="col-3">
+        <div class="col-3 text-left">
+            <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04">||||</button>Disponible<br />
+            <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04" disabled>||||</button> No Disponible
+            <button type="button" class="btn btn-danger ml-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Continuar ></button>
 
         </div>
         <div class="col-4">
@@ -187,6 +190,74 @@
         </div>
     </div>
 </div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center h5 text-danger font-weight-bold" id="exampleModalLabel">Ingresar sus datos correspondientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4 mt-4 mb-4">
+                        Nombre:
+                        <input type="text" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar nombre" name="nombres" /><br />
+                        Telefono:
+                        <input type="text" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar telefono" name="telefono" />
+                    </div>
+                    <div class="col-4 mt-4 mb-4">
+                        Apellido Paterno:
+                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido P" name="apellidoPaterno" /><br />
+                        DNI:
+                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar dni" name="dni" />
+                    </div>
+                    <div class="col-4 mt-4 mb-4">
+                        Apellido Materno:
+                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido M" name="apellidoMaterno" /><br />
+                        Correo:
+                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar correo" name="correo" />
+                    </div>
+                </div>
+                <string class="ml-5">Formas de pago</string>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="checkbox" name="visa" />
+                        <img src="~/images/visa.png" width="60px" />
+                    </div>
+                    <div class="col-2">
+                        <input type="checkbox" name="visa" />
+                        <img src="~/images/tarjeta-mastercard.png" width="60px" />
+                    </div>
+                    <div class="col-2">
+                        <input type="checkbox" name="visa" />
+                        <img src="~/images/paypal.png" width="60px" />
+                    </div>
+                    <div class="col-2 mt-3">
+                        <input type="checkbox" name="visa" />
+                        <img src="~/images/pagoefectivo-logo.png" width="60px" />
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>hola</p>
+}
 @section Scripts{
     <script src="~/js/Pasaje/Pasaje.js"></script>
+    <script>
+
+
+
+    </script>
 }
