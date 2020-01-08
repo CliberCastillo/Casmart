@@ -39,6 +39,21 @@ namespace Buses.Controllers
             return RedirectToAction("Login");
         }
         [HttpGet]
+        public async Task<JsonResult> LoginAjax(string Email, string Password, bool Remenber)
+        {
+            var resultado = await _signInManager.PasswordSignInAsync(
+                Email,
+                Password,
+                Remenber,
+                false
+                );
+            if (resultado.Succeeded)
+            {
+                return Json("Registrado");
+            }
+            return Json("NoRegistrado");
+        }
+        [HttpGet]
         public async Task<JsonResult> CreateUser(string Email, string Contraseña)
         {
             var variable = false;

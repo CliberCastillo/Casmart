@@ -151,7 +151,17 @@
         <div class="col-3 text-left">
             <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04">||||</button>Disponible<br />
             <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04" disabled>||||</button> No Disponible
-            <button type="button" class="btn btn-danger ml-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Continuar ></button>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <button type="button" class="btn btn-danger ml-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Continuar ></button>
+            }
+            else
+            {
+                <button style="" type="button" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion2">
+                    Continuar >
+                </button>
+            }
+            <partial name="Asientos/_ModalIniciarSesion"/>
 
         </div>
         <div class="col-4">
@@ -249,10 +259,6 @@
         </div>
     </div>
 </div>
-@if (User.Identity.IsAuthenticated)
-{
-    <p>hola</p>
-}
 @section Scripts{
     <script src="~/js/Pasaje/Pasaje.js"></script>
     <script>

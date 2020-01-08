@@ -131,3 +131,39 @@ for (var j = 11; j <= 40; j++) {
         });
     });
 }
+
+$("#botonIniciarSesion2").click(function (e) {
+    var email = $("#Email2").val();
+    var password = $("#Password2").val();
+
+    $.ajax({
+        url: '/Account/LoginAjax',
+        type: 'GET',
+        dataType: 'Json',
+        async: false,
+        contentType: 'application/json; charset=utf-8',
+        data: { Email: email, Password: password, Remenber: true },
+        success: function (data, textStatus, jQxhr) {
+            if (data) {
+                location.reload();
+            }
+            else {
+                swal({
+                    title: "Error!",
+                    text: "No se logueo, por favor ingresar los datos correctos y/o crear tu cuenta :C!",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+            }
+            $('#btnRegistrarme').modal('hide');
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            swal({
+                title: "Error!",
+                text: "No se logueo, por favor ingresar los datos correctos y/o crear tu cuenta :C!",
+                icon: "error",
+                button: "Aceptar"
+            });
+        }
+    });
+});
