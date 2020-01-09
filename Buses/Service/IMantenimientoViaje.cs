@@ -13,5 +13,7 @@ namespace Buses.Service
         List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes);
         List<ItinerarioViaje> ObtenerListadoAgenciaPromociones();
         ItinerarioViaje FechaYHoraViaje(string IdItinerario);
+        int ObtenerNumeroPasajeros();
+        string GuardarPasajero(Pasajero pasajero);
     }
 }

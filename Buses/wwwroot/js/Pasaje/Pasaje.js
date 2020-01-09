@@ -169,3 +169,76 @@ $("#botonIniciarSesion2").click(function (e) {
         }
     });
 });
+$("#btnGuardarPasajero").click(function (e) {
+    var Nombre = $("#txtNombre").val();
+    var ApellidoPaterno = $("#txtApellidoPaterno").val();
+    var ApellidoMaterno = $("#txtApellidoMaterno").val();
+    var Telefono = $("#txtTelefono").val();
+    var TipoDocumento = $("#cboTipoDocumento").val();
+    var NumeroDocumento = $("#txtDni").val();
+    var Correo = $("#txtEmail").val();
+    $.ajax({
+        url: '/Pasaje/RegistrarPasajero',
+        type: 'GET',
+        dataType: 'Json',
+        async: false,
+        contentType: 'application/json; charset=utf-8',
+        data: {
+            Nombre: Nombre, ApellidoPaterno: ApellidoPaterno, ApellidoMaterno: ApellidoMaterno,
+            Telefono: Telefono, TipoDocumento: TipoDocumento, NumeroDocumento: NumeroDocumento,
+            Correo: Correo
+        },
+        success: function (data, textStatus, jQxhr) {
+            if (data === "PasajeroGuardado") {
+                $("#DNIPasajeroDetalle").text(NumeroDocumento);
+                swal({
+                    title: "Satisfactorio!",
+                    text: "Se guardaron sus datos correctamente",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+                
+                $("#txtNombre").val("");
+                $("#txtApellidoPaterno").val("");
+                $("#txtApellidoMaterno").val("");
+                $("#txtTelefono").val("");
+                $("#cboTipoDocumento").val("");
+                $("#txtDni").val("");
+                $("#txtEmail").val("");
+                $("#btnContinuar").css("display", "none")   
+            }
+            else {
+                swal({
+                    title: "Error!",
+                    text: "No se guardaron sus datos, por favor volver a intentar :C!",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+                $("#txtNombre").val("");
+                $("#txtApellidoPaterno").val("");
+                $("#txtApellidoMaterno").val("");
+                $("#txtTelefono").val("");
+                $("#cboTipoDocumento").val("");
+                $("#txtDni").val("");
+                $("#txtEmail").val("");
+                $('.bd-example-modal-lg').modal('toggle');
+            }
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            swal({
+                title: "Error!",
+                text: "No se guardaron sus datos, por favor volver a intentar: C!",
+                icon: "error",
+                button: "Aceptar"
+            });
+            $("#txtNombre").val("");
+            $("#txtApellidoPaterno").val("");
+            $("#txtApellidoMaterno").val("");
+            $("#txtTelefono").val("");
+            $("#cboTipoDocumento").val("");
+            $("#txtDni").val("");
+            $("#txtEmail").val("");
+            $('.bd-example-modal-lg').modal('toggle');
+        }
+    });
+});

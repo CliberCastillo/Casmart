@@ -28,6 +28,23 @@ namespace Buses.Service
                                                 .SingleOrDefault();
         }
 
+        public string GuardarPasajero(Pasajero pasajero)
+        {
+            string mensaje;
+            var pasajeros = _context.Pasajero.Where(x => x.NumeroDocumento == pasajero.NumeroDocumento).Count();
+            if (pasajeros == 0)
+            {
+                _context.Pasajero.Add(pasajero);
+                _context.SaveChanges();
+                mensaje = "Registrado";
+            }
+            else
+            {
+                mensaje = "NoRegistrado";
+            }
+            return mensaje;
+        }
+
         public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
         {
             return _context.ItinerarioViaje.Where(x => x.AgenciaOrigen == viajes.Origen && x.AgenciaDestino == viajes.Destino)
@@ -42,6 +59,11 @@ namespace Buses.Service
         public List<ItinerarioViaje> ObtenerListadoAgenciaPromociones()
         {
             return _context.ItinerarioViaje.Where(x => x.PrecioViaje <= 25).ToList();
+        }
+
+        public int ObtenerNumeroPasajeros()
+        {
+            return _context.Pasajero.Count();
         }
     }
 }

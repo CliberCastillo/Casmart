@@ -6,6 +6,8 @@ using Buses.Service;
 using Microsoft.AspNetCore.Mvc;
 
 using Buses.Models;
+using Buses.Common;
+using Buses.Entities;
 
 namespace Buses.Controllers
 {
@@ -16,6 +18,32 @@ namespace Buses.Controllers
         {
             _mantenimientoViaje = mantenimientoViaje;
         }
+        public JsonResult RegistrarPasajero(string Nombre, string ApellidoPaterno, string ApellidoMaterno,string Telefono, string TipoDocumento, string NumeroDocumento,string Correo)
+        {
+            var numeroPasajeros = _mantenimientoViaje.ObtenerNumeroPasajeros();
+            var codigoPasajero = GenerarCodigoPasajero.CodigoPasajero(numeroPasajeros);
+
+            Pasajero pasajero = new Pasajero
+            {
+                IdPasajero = codigoPasajero,
+                Nombres = Nombre,
+                ApellidoPaterno = ApellidoPaterno,
+                ApellidoMaterno = ApellidoMaterno,
+                Telefono = Telefono,
+                TipoDocumento = TipoDocumento,
+                NumeroDocumento = NumeroDocumento,
+                Correo = Correo
+            };
+            if (_mantenimientoViaje.GuardarPasajero(pasajero) == "Registrado")
+            {
+                return Json("PasajeroGuardado");
+            }
+            else
+            {
+                return Json("PasajeroNoGuardado");
+            }
+        }
+
         [HttpPost]
         public IActionResult Index(AgenciaViajesViewModel viajes)
         {

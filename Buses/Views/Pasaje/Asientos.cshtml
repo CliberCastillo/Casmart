@@ -153,11 +153,11 @@
             <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04" disabled>||||</button> No Disponible
             @if (User.Identity.IsAuthenticated)
             {
-                <button type="button" class="btn btn-danger ml-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Continuar ></button>
+                <button type="button" id="btnContinuar" class="btn btn-danger ml-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Continuar ></button>
             }
             else
             {
-                <button style="" type="button" class="btn btn-danger ml-2 mr-2 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion2">
+                <button style="" type="button" id="btnContinuar" class="btn btn-danger ml-2 mr-2 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion2">
                     Continuar >
                 </button>
             }
@@ -172,7 +172,8 @@
                     <div class="row">
                         <div class="col-1"></div>
                         <div class="col-10 bg-colorPagina text-left rounded text-white">
-                            <p class="mt-2"><strong>@Model.AgenciaOrigen</strong> a <strong>@Model.AgenciaDestino</strong></p>
+                            <p class="mt-2"><strong>@Model.AgenciaOrigen</strong> a <strong>@Model.AgenciaDestino</strong><br /><br />
+                            <img src="~/images/usuario (1).png" class="mr-2" width="15px"/><strong id="DNIPasajeroDetalle">0</strong><br />
                             <img src="~/images/icon.png" class="mr-2" />
                             <strong>
                                 @if (Model.PrecioViaje <= 20)
@@ -186,10 +187,10 @@
                                 }
                             </strong><br />
                             <img src="~/images/calendario.png" class="mr-2" />@String.Format("{0:dd/mm/yyyy}", Model.HoraViaje) &nbsp;<img src="~/images/reloj.png" class="mr-1" />@String.Format("{0:HH:mm tt}", Model.HoraViaje)<br />
-                            <img src="~/images/sillon.png" class="mr-2" />Asiento<strong id="asientosSeleccionados">:</strong><br />
-                            <p><img src="~/images/simbolo-del-dolar.png" class="mr-2" />Sub Total:<strong id="precio">0</strong></p>
+                            <img src="~/images/sillon.png" class="mr-2" />Asiento<strong id="asientosSeleccionados">:</strong>
+                            <p><img src="~/images/simbolo-del-dolar.png" class="mr-2" />Sub Total:<strong id="precio" class="ml-2">0</strong></p>
                             <div class="text-center">
-                                <a class="btn btn-dark font-weight-bold mb-4 btn-sm" style="width:190px">Total:</a>
+                                <a class="btn btn-dark font-weight-bold mb-4 btn-sm" data-toggle="modal" data-target="#ModalVisa" style="width:200px">Comprar Mi Viaje</a>
                             </div>
                         </div>
                         <div class="col-1"></div>
@@ -213,24 +214,41 @@
                 <div class="row">
                     <div class="col-4 mt-4 mb-4">
                         Nombre:
-                        <input type="text" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar nombre" name="nombres" /><br />
+                        <input type="text" id="txtNombre" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar nombre" name="nombres" /><br />
                         Telefono:
-                        <input type="text" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar telefono" name="telefono" />
+                        <input type="number" id="txtTelefono" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar telefono" name="telefono" /><br />
+                        Correo:
+                        <input type="email" id="txtEmail" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar correo" name="correo" />
                     </div>
                     <div class="col-4 mt-4 mb-4">
                         Apellido Paterno:
-                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido P" name="apellidoPaterno" /><br />
-                        DNI:
-                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar dni" name="dni" />
+                        <input type="text" id="txtApellidoPaterno" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido P" name="apellidoPaterno" /><br />
+                        Tipo Documento:
+                        <select class="form-control border-dark" id="cboTipoDocumento" style="border-radius:13px">
+                            <option>- Seleccionar -</option>
+                            <option>DNI</option>
+                        </select>
                     </div>
                     <div class="col-4 mt-4 mb-4">
                         Apellido Materno:
-                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido M" name="apellidoMaterno" /><br />
-                        Correo:
-                        <input type="text" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar correo" name="correo" />
+                        <input type="text" id="txtApellidoMaterno" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido M" name="apellidoMaterno" /><br />
+                        DNI:
+                        <input type="number" id="txtDni" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar dni" name="dni" />
                     </div>
                 </div>
-                <string class="ml-5">Formas de pago</string>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btnGuardarPasajero" class="btn btn-danger">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="Asientos/_ModalVisa" />
+@section Scripts{
+    <script src="~/js/Pasaje/Pasaje.js"></script>
+}
+                @*<string class="ml-5">Formas de pago</string>
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-2">
@@ -250,16 +268,4 @@
                         <img src="~/images/pagoefectivo-logo.png" width="60px" />
                     </div>
                     <div class="col-2"></div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<partial name="Asientos/_ModalVisa" />
-@section Scripts{
-    <script src="~/js/Pasaje/Pasaje.js"></script>
-}
+                </div>*@
