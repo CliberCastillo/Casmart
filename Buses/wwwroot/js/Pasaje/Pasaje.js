@@ -144,7 +144,7 @@ $("#botonIniciarSesion2").click(function (e) {
         contentType: 'application/json; charset=utf-8',
         data: { Email: email, Password: password, Remenber: true },
         success: function (data, textStatus, jQxhr) {
-            if (data) {
+            if (data === "Registrado") {
                 location.reload();
             }
             else {
@@ -154,6 +154,8 @@ $("#botonIniciarSesion2").click(function (e) {
                     icon: "error",
                     button: "Aceptar"
                 });
+                $("#Email2").val("");
+                $("#Password2").val("");
             }
             $('#btnRegistrarme').modal('hide');
         },

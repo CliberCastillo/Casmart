@@ -157,11 +157,11 @@
             }
             else
             {
-                <button style="" type="button" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion2">
+                <button style="" type="button" class="btn btn-danger ml-2 mr-2 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion2">
                     Continuar >
                 </button>
             }
-            <partial name="Asientos/_ModalIniciarSesion"/>
+            <partial name="Asientos/_ModalIniciarSesion" />
 
         </div>
         <div class="col-4">
@@ -234,7 +234,7 @@
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-2">
-                        <input type="checkbox" name="visa" />
+                        <input type="checkbox" data-toggle="modal" data-target="#ModalVisa" id="chkVisa" />
                         <img src="~/images/visa.png" width="60px" />
                     </div>
                     <div class="col-2">
@@ -259,11 +259,7 @@
         </div>
     </div>
 </div>
+<partial name="Asientos/_ModalVisa" />
 @section Scripts{
     <script src="~/js/Pasaje/Pasaje.js"></script>
-    <script>
-
-
-
-    </script>
 }
