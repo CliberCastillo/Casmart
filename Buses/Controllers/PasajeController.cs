@@ -18,10 +18,15 @@ namespace Buses.Controllers
         {
             _mantenimientoViaje = mantenimientoViaje;
         }
-        public JsonResult RegistrarPasaje(string dniPasajero, string fechaViaje, string numeroAsiento, string precioPasaje)
+        public JsonResult RegistrarPasaje(string IdItinerario, string dniPasajero, string fechaViaje, string numeroAsiento, int precioPasaje, string estado)
         {
-            var numeroPasajeros = _mantenimientoViaje.ObtenerNumeroPasajeros();
-            var codigoPasajero = GenerarCodigoPasajero.CodigoPasajero(numeroPasajeros);
+            
+            var numeroPasajes = _mantenimientoViaje.ObtenerNumeroPasaje();
+            var codigoPasaje = GenerarCodigoPasaje.CodigoPasaje(numeroPasajes);
+            _mantenimientoViaje.GuardarPasaje(codigoPasaje, IdItinerario, dniPasajero, fechaViaje, numeroAsiento, precioPasaje, estado);
+
+
+
             return Json("");
             
         }
@@ -61,6 +66,7 @@ namespace Buses.Controllers
         }
         public IActionResult Asientos(string IdItinerario)
         {
+            ViewBag.IdItinerario = IdItinerario;
             var lstResumenCompra = _mantenimientoViaje.FechaYHoraViaje(IdItinerario);
             return View(lstResumenCompra);
         }

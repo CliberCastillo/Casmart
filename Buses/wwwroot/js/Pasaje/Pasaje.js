@@ -17,7 +17,7 @@
             case "agregar":
                 swal("Agreado", "El asiento fue agregado correctamente", "success");
                 var valor = $("#asientosSeleccionados").text();
-                var suma = valor + "," + $(this).text();
+                var suma = valor + $(this).text();
                 $("#asientosSeleccionados").html(suma);
 
                 var precio = document.getElementById("tipoServicio");
@@ -61,7 +61,7 @@ for (var i = 1; i <= 9; i++) {
                 case "agregar":
                     swal("Agreado", "El asiento fue agregado correctamente", "success");
                     var valor = $("#asientosSeleccionados").text();
-                    var suma = valor + "," + $(this).text();
+                    var suma = valor + $(this).text();
                     $("#asientosSeleccionados").html(suma);
 
                     var precio = document.getElementById("tipoServicio");
@@ -197,7 +197,7 @@ $("#btnGuardarPasajero").click(function (e) {
                     icon: "success",
                     button: "Aceptar"
                 });
-                
+
                 $("#txtNombre").val("");
                 $("#txtApellidoPaterno").val("");
                 $("#txtApellidoMaterno").val("");
@@ -205,7 +205,7 @@ $("#btnGuardarPasajero").click(function (e) {
                 $("#cboTipoDocumento").val("");
                 $("#txtDni").val("");
                 $("#txtEmail").val("");
-                $("#btnContinuar").css("display", "none")   
+                $("#btnContinuar").css("display", "none")
             }
             else {
                 swal({
@@ -247,8 +247,10 @@ $("#PagoPasaje").click(function (e) {
 
     var DNIPasajero = $("#DNIPasajeroDetalle").text();
     var fechaViaje = $("#fechaViaje").text();
+    var tipoServicio = $("#tipoServicio").text();
     var numeroAsiento = $("#asientosSeleccionados").text();
     var precioPasaje = $("#precio").text();
+    var idItinerario = $("#idItinerario").text();
 
     $.ajax({
         url: '/Pasaje/RegistrarPasaje',
@@ -258,7 +260,7 @@ $("#PagoPasaje").click(function (e) {
         contentType: 'application/json; charset=utf-8',
         data: {
             dniPasajero: DNIPasajero, fechaViaje: fechaViaje, numeroAsiento: numeroAsiento,
-            precioPasaje: precioPasaje
+            precioPasaje: precioPasaje, IdItinerario: idItinerario, estado: tipoServicio
         },
         success: function (data, textStatus, jQxhr) {
             if (data === "PasajeroGuardado") {

@@ -17,152 +17,23 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-1">
-
-        </div>
-        <div class="col-1 text-right">
-            <button type="button" id="asiento01" class="btn btn-secondary btn-lg mb-2">
-                01
-            </button>
-            <button type="button" id="asiento05" class="btn btn-secondary btn-lg mb-2">
-                05
-            </button>
-            <button type="button" id="asiento09" class="btn btn-secondary mb-2 btn-lg">
-                09
-            </button>
-            <button type="button" id="asiento13" class="btn btn-secondary mb-2 btn-lg">
-                13
-            </button>
-            <button type="button" id="asiento17" class="btn btn-secondary mb-2 btn-lg">
-                17
-            </button>
-            <button type="button" id="asiento21" class="btn btn-secondary mb-2 btn-lg">
-                21
-            </button>
-            <button type="button" id="asiento25" class="btn btn-secondary mb-2 btn-lg">
-                25
-            </button>
-            <button type="button" id="asiento29" class="btn btn-secondary mb-2 btn-lg">
-                29
-            </button>
-            <button type="button" id="asiento33" class="btn btn-secondary mb-2 btn-lg">
-                33
-            </button>
-            <button type="button" id="asiento37" class="btn btn-secondary btn-lg">
-                37
-            </button>
-        </div>
-        <div class="col-1 text-left">
-            <button type="button" class="btn btn-secondary btn-lg mb-2" id="asiento02">
-                02
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg mb-2" id="asiento06">
-                06
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento10">
-                10
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento14">
-                14
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento18">
-                18
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento22">
-                22
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento26">
-                26
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento30">
-                30
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento34">
-                34
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg" id="asiento38">
-                38
-            </button>
-        </div>
-        <div class="col-1 text-right">
-            <button type="button" class="btn btn-secondary btn-lg mb-2" id="asiento03">
-                03
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg mb-2" id="asiento07">
-                07
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento11">
-                11
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento15">
-                15
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento19">
-                19
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento23">
-                23
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento27">
-                27
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento31">
-                31
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento35">
-                35
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg" id="asiento39">
-                39
-            </button>
-        </div>
-        <div class="col-1 text-left">
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento04">
-                04
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento08">
-                08
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento12">
-                12
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento16">
-                16
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento20">
-                20
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento24">
-                24
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 btn-lg" id="asiento28">
-                28
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg mb-2" id="asiento32">
-                32
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg mb-2" id="asiento36">
-                36
-            </button>
-            <button type="button" class="btn btn-secondary btn-lg" id="asiento40">
-                40
-            </button>
-        </div>
+        <partial name="Asientos/_ModalAsientos" />
         <div class="col-3 text-left">
             <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04">||||</button>Disponible<br />
             <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04" disabled>||||</button> No Disponible
             @if (User.Identity.IsAuthenticated)
             {
-                <button type="button" id="btnContinuar" class="btn btn-danger ml-2 mr-2" data-toggle="modal" data-target=".bd-example-modal-lg">Continuar ></button>
+                <div class="text-center">
+                    <button class="btn btn-danger" id="btnContinuar" data-toggle="modal" data-target="#ModalPasajero" style="width:200px">Continuar</button>
+                </div>
             }
             else
             {
-                <button style="" type="button" id="btnContinuar" class="btn btn-danger ml-2 mr-2 my-2 my-sm-0 font-weight-bold" data-toggle="modal" data-target="#ModalIniciarSesion2">
-                    Continuar >
+                <button style="" type="button" id="btnContinuar" class="btn btn-danger" data-toggle="modal" data-target="#ModalIniciarSesion2">
+                    Continuar
                 </button>
             }
             <partial name="Asientos/_ModalIniciarSesion" />
-
         </div>
         <div class="col-4">
             <br /><br />
@@ -172,24 +43,27 @@
                     <div class="row">
                         <div class="col-1"></div>
                         <div class="col-10 bg-colorPagina text-left rounded text-white">
-                            <p class="mt-2"><strong>@Model.AgenciaOrigen</strong> a <strong>@Model.AgenciaDestino</strong><br /><br />
-                            <img src="~/images/usuario (1).png" class="mr-2" width="15px"/><strong id="DNIPasajeroDetalle">0</strong><br />
-                            <img src="~/images/icon.png" class="mr-2" />
-                            <strong>
-                                @if (Model.PrecioViaje <= 20)
-                                {
-                                    <a id="tipoServicio">Oferta</a>
-                                }
-                                else
-                                {
-                                    <a id="tipoServicio">Servicio Normal</a>
+                            Nro: <span id="idItinerario">@ViewBag.IdItinerario</span>
+                            <p class="mt-2">
+                                <strong>@Model.AgenciaOrigen</strong> a <strong>@Model.AgenciaDestino</strong><br /><br />
+                                <img src="~/images/usuario (1).png" class="mr-2" width="15px" /><strong id="DNIPasajeroDetalle">0</strong><br />
+                                <img src="~/images/icon.png" class="mr-2" />
+                                <strong>
+                                    @if (Model.PrecioViaje <= 20)
+                                    {
+                                        <a id="tipoServicio">Oferta</a>
+                                    }
+                                    else
+                                    {
+                                        <a id="tipoServicio">Servicio Normal</a>
 
-                                }
-                            </strong><br />
-                            <label id="fechaViaje" style="display:none">@Model.HoraViaje</label>
-                            <img src="~/images/calendario.png" class="mr-2" /><strong id="">@String.Format("{0:dd/mm/yyyy}", Model.HoraViaje)</strong> &nbsp;<img src="~/images/reloj.png" class="mr-1" /><strong id="">@String.Format("{0:HH:mm tt}", Model.HoraViaje)</strong><br />
-                            <img src="~/images/sillon.png" class="mr-2" />Asiento<strong id="asientosSeleccionados">:</strong>
+                                    }
+                                </strong><br />
+                                <label id="fechaViaje" style="display:none">@Model.HoraViaje</label>
+                                <img src="~/images/calendario.png" class="mr-2" /><strong id="">@String.Format("{0:dd/mm/yyyy}", Model.HoraViaje)</strong> &nbsp;<img src="~/images/reloj.png" class="mr-1" /><strong id="">@String.Format("{0:HH:mm tt}", Model.HoraViaje)</strong><br />
+                                <img src="~/images/sillon.png" class="mr-2" />Asiento:<span id="asientosSeleccionados"></span>
                             <p><img src="~/images/simbolo-del-dolar.png" class="mr-2" />Sub Total:<strong id="precio" class="ml-2">0</strong></p>
+
                             <div class="text-center">
                                 <a class="btn btn-dark font-weight-bold mb-4 btn-sm" data-toggle="modal" data-target="#ModalVisa" style="width:200px">Comprar Mi Viaje</a>
                             </div>
@@ -202,71 +76,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center h5 text-danger font-weight-bold" id="exampleModalLabel">Ingresar sus datos correspondientes</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-4 mt-4 mb-4">
-                        Nombre:
-                        <input type="text" id="txtNombre" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar nombre" name="nombres" /><br />
-                        Telefono:
-                        <input type="number" id="txtTelefono" class="form-control border-dark" style="border-radius:13px" placeholder="Ingresar telefono" name="telefono" /><br />
-                        Correo:
-                        <input type="email" id="txtEmail" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar correo" name="correo" />
-                    </div>
-                    <div class="col-4 mt-4 mb-4">
-                        Apellido Paterno:
-                        <input type="text" id="txtApellidoPaterno" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido P" name="apellidoPaterno" /><br />
-                        Tipo Documento:
-                        <select class="form-control border-dark" id="cboTipoDocumento" style="border-radius:13px">
-                            <option>- Seleccionar -</option>
-                            <option>DNI</option>
-                        </select>
-                    </div>
-                    <div class="col-4 mt-4 mb-4">
-                        Apellido Materno:
-                        <input type="text" id="txtApellidoMaterno" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar apellido M" name="apellidoMaterno" /><br />
-                        DNI:
-                        <input type="number" id="txtDni" class="form-control border-dark " style="border-radius:13px" placeholder="Ingresar dni" name="dni" />
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" id="btnGuardarPasajero" class="btn btn-danger">Guardar</button>
-            </div>
-        </div>
-    </div>
-</div>
 <partial name="Asientos/_ModalVisa" />
+<partial name="Asientos/_ModalPasajero" />
 @section Scripts{
     <script src="~/js/Pasaje/Pasaje.js"></script>
 }
-                @*<string class="ml-5">Formas de pago</string>
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-2">
-                        <input type="checkbox" data-toggle="modal" data-target="#ModalVisa" id="chkVisa" />
-                        <img src="~/images/visa.png" width="60px" />
-                    </div>
-                    <div class="col-2">
-                        <input type="checkbox" name="visa" />
-                        <img src="~/images/tarjeta-mastercard.png" width="60px" />
-                    </div>
-                    <div class="col-2">
-                        <input type="checkbox" name="visa" />
-                        <img src="~/images/paypal.png" width="60px" />
-                    </div>
-                    <div class="col-2 mt-3">
-                        <input type="checkbox" name="visa" />
-                        <img src="~/images/pagoefectivo-logo.png" width="60px" />
-                    </div>
-                    <div class="col-2"></div>
-                </div>*@

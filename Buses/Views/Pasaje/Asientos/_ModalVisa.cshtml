@@ -1,35 +1,38 @@
 ﻿<div class="modal fade" id="ModalVisa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">
-                    <img src="~/images/visa.png" width="50px" />
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-12">
-                        <label>Numero Tarjeta:</label>
-                        <input type="number" class="form-control" />
-                    </div>
+                <div class="row mt-2">
+                    <div class="col-2"></div>
+                        <div class="col-8">
+                            <label>Numero Tarjeta:</label>
+                            <input type="number" class="form-control" />
+                        </div>
+                    <div class="col-2"></div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-2"></div>
+                    <div class="col-4">
                         <label>Fecha V:</label>
-                        <input type="text" class="form-control" placeholder="--/----"/>
+                        <input type="text" class="form-control" placeholder="--/----" />
                     </div>
-                    <div class="col-6">
+                    <div class="col-4">
                         <label>CVC:</label>
                         <input type="number" class="form-control" />
                     </div>
+                    <div class="col-2"></div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" id="PagoPasaje" class="btn btn-primary">Pagar</button>
+                <button type="button" id="PagoPasaje" class="btn btn-danger">Pagar</button>
             </div>
         </div>
     </div>

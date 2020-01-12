@@ -15,6 +15,27 @@ namespace Buses.Service
             _context = context;
         }
 
+        public void GuardarPasaje(string codigoPasaje, string IdItinerario, string dniPasajero, string fechaViaje, string numeroAsiento, int precioPasaje, string estado)
+        {
+            var fechViaje = Convert.ToDateTime(fechaViaje);
+            var buscarPasajeroDni = _context.Pasajero.Where(x => x.NumeroDocumento == dniPasajero)
+                                                        .Select(x => new Pasajero{ 
+                                                            IdPasajero = x.IdPasajero
+                                                         })
+                                                        .SingleOrDefault();
+
+            
+            Pasaje pasaje = new Pasaje
+            {
+                NroPasaje = codigoPasaje,
+                IdItinerario = IdItinerario,
+                FechaViaje = fechViaje,
+                Estado = estado,
+                NumeroAsieto = numeroAsiento,
+                precioPasaje = precioPasaje
+            };
+        }
+
         public ItinerarioViaje FechaYHoraViaje(string IdItinerario)
         {
             return _context.ItinerarioViaje.Where(x => x.IdItinerario == IdItinerario)
@@ -64,6 +85,11 @@ namespace Buses.Service
         public int ObtenerNumeroPasajeros()
         {
             return _context.Pasajero.Count();
+        }
+
+        public int ObtenerNumeroPasaje()
+        {
+            return _context.Pasaje.Count();
         }
     }
 }

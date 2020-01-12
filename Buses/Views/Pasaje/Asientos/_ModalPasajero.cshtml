@@ -1,0 +1,45 @@
+﻿<div class="modal fade" id="ModalPasajero" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                    <label>Registro de datos y pago</label>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4 mt-4 mb-4">
+                        Nombre:
+                        <input type="text" id="txtNombre" class="form-control" placeholder="Ingresar nombre" name="nombres" /><br />
+                        Telefono:
+                        <input type="number" id="txtTelefono" class="form-control " placeholder="Ingresar telefono" name="telefono" /><br />
+                        Correo:
+                        <input type="email" id="txtEmail" class="form-control" placeholder="Ingresar correo" name="correo" />
+                    </div>
+                    <div class="col-4 mt-4 mb-4">
+                        Apellido Paterno:
+                        <input type="text" id="txtApellidoPaterno" class="form-control " placeholder="Ingresar apellido P" name="apellidoPaterno" /><br />
+                        Tipo Documento:
+                        <select class="form-control" id="cboTipoDocumento">
+                            <option>- Seleccionar -</option>
+                            <option>DNI</option>
+                        </select>
+                    </div>
+                    <div class="col-4 mt-4 mb-4">
+                        Apellido Materno:
+                        <input type="text" id="txtApellidoMaterno" class="form-control" placeholder="Ingresar apellido M" name="apellidoMaterno" /><br />
+                        DNI:
+                        <input type="number" id="txtDni" class="form-control" placeholder="Ingresar dni" name="dni" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-danger" id="btnGuardarPasajero">Registra mis datos</button>
+            </div>
+        </div>
+    </div>
+</div>
