@@ -17,13 +17,11 @@ namespace Buses.Entities
         public string IdItinerario { get; set; }
         public DateTime? FechaViaje { get; set; }
         public string Estado { get; set; }
-        public int NumeroAsieto { get; set; }
+        public string NumeroAsieto { get; set; }
         public int precioPasaje { get; set; }
 
-        public Empleado IdEmpleadoNavigation { get; set; }
         public ItinerarioViaje IdItinerarioNavigation { get; set; }
         public Pasajero IdPasajeroNavigation { get; set; }
-        public Reserva IdReservaNavigation { get; set; }
         public ICollection<Facturacion> Facturacion { get; set; }
     }
 }

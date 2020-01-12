@@ -419,10 +419,6 @@ namespace Buses.Entities
                     .HasForeignKey(d => d.IdPasajero)
                     .HasConstraintName("FK_PASAJE_IDPASAJERO");
 
-                entity.HasOne(d => d.IdReservaNavigation)
-                    .WithMany(p => p.Pasaje)
-                    .HasForeignKey(d => d.IdReserva)
-                    .HasConstraintName("FK_PASAJE_IDRESERVA");
             });
 
             modelBuilder.Entity<Pasajero>(entity =>

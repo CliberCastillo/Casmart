@@ -186,7 +186,8 @@
 
                                 }
                             </strong><br />
-                            <img src="~/images/calendario.png" class="mr-2" />@String.Format("{0:dd/mm/yyyy}", Model.HoraViaje) &nbsp;<img src="~/images/reloj.png" class="mr-1" />@String.Format("{0:HH:mm tt}", Model.HoraViaje)<br />
+                            <label id="fechaViaje" style="display:none">@Model.HoraViaje</label>
+                            <img src="~/images/calendario.png" class="mr-2" /><strong id="">@String.Format("{0:dd/mm/yyyy}", Model.HoraViaje)</strong> &nbsp;<img src="~/images/reloj.png" class="mr-1" /><strong id="">@String.Format("{0:HH:mm tt}", Model.HoraViaje)</strong><br />
                             <img src="~/images/sillon.png" class="mr-2" />Asiento<strong id="asientosSeleccionados">:</strong>
                             <p><img src="~/images/simbolo-del-dolar.png" class="mr-2" />Sub Total:<strong id="precio" class="ml-2">0</strong></p>
                             <div class="text-center">

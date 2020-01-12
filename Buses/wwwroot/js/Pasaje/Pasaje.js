@@ -106,25 +106,26 @@ for (var j = 11; j <= 40; j++) {
                 case "agregar":
                     swal("Agreado", "El asiento fue agregado correctamente", "success");
                     var valor = $("#asientosSeleccionados").text();
-                    var suma = valor + "," + $(this).text();
-                    $("#asientosSeleccionados").html(suma);
+                    var suma = valor + $(this).text();
+                    alert(suma);
+                    //$("#asientosSeleccionados").text(suma);
 
-                    var precio = document.getElementById("tipoServicio");
-                    var demoValue2 = String(precio.innerHTML);
+                    //var precio = document.getElementById("tipoServicio");
+                    //var demoValue2 = String(precio.innerHTML);
 
-                    var demo = document.getElementById("precio");
-                    var demoValue = parseInt(demo.innerHTML);
-                    var puntos;
-                    if (demoValue2 === "Oferta") {
+                    //var demo = document.getElementById("precio");
+                    //var demoValue = parseInt(demo.innerHTML);
+                    //var puntos;
+                    //if (demoValue2 === "Oferta") {
 
-                        puntos = demoValue + 20;
-                    }
-                    else {
-                        puntos = demoValue + 50;
-                    }
+                    //    puntos = demoValue + 20;
+                    //}
+                    //else {
+                    //    puntos = demoValue + 50;
+                    //}
 
-                    demo.innerHTML = puntos;
-                    $(this).prop('disabled', true);
+                    //demo.innerHTML = puntos;
+                    //$(this).prop('disabled', true);
 
                     break;
             }
@@ -239,6 +240,52 @@ $("#btnGuardarPasajero").click(function (e) {
             $("#txtDni").val("");
             $("#txtEmail").val("");
             $('.bd-example-modal-lg').modal('toggle');
+        }
+    });
+});
+
+$("#PagoPasaje").click(function (e) {
+
+    var DNIPasajero = $("#DNIPasajeroDetalle").text();
+    var fechaViaje = $("#fechaViaje").text();
+    var numeroAsiento = $("#asientosSeleccionados").text();
+    var precioPasaje = $("#precio").text();
+
+    $.ajax({
+        url: '/Pasaje/RegistrarPasaje',
+        type: 'GET',
+        dataType: 'Json',
+        async: false,
+        contentType: 'application/json; charset=utf-8',
+        data: {
+            dniPasajero: DNIPasajero, fechaViaje: fechaViaje, numeroAsiento: numeroAsiento,
+            precioPasaje: precioPasaje
+        },
+        success: function (data, textStatus, jQxhr) {
+            if (data === "PasajeroGuardado") {
+                swal({
+                    title: "Satisfactorio!",
+                    text: "Se guardaron sus datos correctamente",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+            }
+            else {
+                swal({
+                    title: "Error!",
+                    text: "No se guardaron sus datos, por favor volver a intentar :C!",
+                    icon: "error",
+                    button: "Aceptar"
+                });
+            }
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            swal({
+                title: "Error!",
+                text: "No se guardaron sus datos, por favor volver a intentar: C!",
+                icon: "error",
+                button: "Aceptar"
+            });
         }
     });
 });

@@ -18,6 +18,13 @@ namespace Buses.Controllers
         {
             _mantenimientoViaje = mantenimientoViaje;
         }
+        public JsonResult RegistrarPasaje(string dniPasajero, string fechaViaje, string numeroAsiento, string precioPasaje)
+        {
+            var numeroPasajeros = _mantenimientoViaje.ObtenerNumeroPasajeros();
+            var codigoPasajero = GenerarCodigoPasajero.CodigoPasajero(numeroPasajeros);
+            return Json("");
+            
+        }
         public JsonResult RegistrarPasajero(string Nombre, string ApellidoPaterno, string ApellidoMaterno,string Telefono, string TipoDocumento, string NumeroDocumento,string Correo)
         {
             var numeroPasajeros = _mantenimientoViaje.ObtenerNumeroPasajeros();
@@ -57,5 +64,6 @@ namespace Buses.Controllers
             var lstResumenCompra = _mantenimientoViaje.FechaYHoraViaje(IdItinerario);
             return View(lstResumenCompra);
         }
+        
     }
 }
