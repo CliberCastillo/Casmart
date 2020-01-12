@@ -107,25 +107,24 @@ for (var j = 11; j <= 40; j++) {
                     swal("Agreado", "El asiento fue agregado correctamente", "success");
                     var valor = $("#asientosSeleccionados").text();
                     var suma = valor + $(this).text();
-                    alert(suma);
-                    //$("#asientosSeleccionados").text(suma);
+                    $("#asientosSeleccionados").text(suma);
 
-                    //var precio = document.getElementById("tipoServicio");
-                    //var demoValue2 = String(precio.innerHTML);
+                    var precio = document.getElementById("tipoServicio");
+                    var demoValue2 = String(precio.innerHTML);
 
-                    //var demo = document.getElementById("precio");
-                    //var demoValue = parseInt(demo.innerHTML);
-                    //var puntos;
-                    //if (demoValue2 === "Oferta") {
+                    var demo = document.getElementById("precio");
+                    var demoValue = parseInt(demo.innerHTML);
+                    var puntos;
+                    if (demoValue2 === "Oferta") {
 
-                    //    puntos = demoValue + 20;
-                    //}
-                    //else {
-                    //    puntos = demoValue + 50;
-                    //}
+                        puntos = demoValue + 20;
+                    }
+                    else {
+                        puntos = demoValue + 50;
+                    }
 
-                    //demo.innerHTML = puntos;
-                    //$(this).prop('disabled', true);
+                    demo.innerHTML = puntos;
+                    $(this).prop('disabled', true);
 
                     break;
             }
