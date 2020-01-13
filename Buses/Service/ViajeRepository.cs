@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Buses.Service
 {
-    public class MantenimientoViaje : IMantenimientoViaje
+    public class ViajeRepository : IViajeRepository
     {
         private readonly AgenciaBusesContext _context;
-        public MantenimientoViaje(AgenciaBusesContext context)
+        public ViajeRepository(AgenciaBusesContext context)
         {
             _context = context;
         }
@@ -19,21 +19,22 @@ namespace Buses.Service
         {
             var fechViaje = Convert.ToDateTime(fechaViaje);
             var buscarPasajeroDni = _context.Pasajero.Where(x => x.NumeroDocumento == dniPasajero)
-                                                        .Select(x => new Pasajero{ 
-                                                            IdPasajero = x.IdPasajero
-                                                         })
-                                                        .SingleOrDefault();
+                                                        .Select(u => u.IdPasajero)
+                                                        .FirstOrDefault();
 
-            
+
             Pasaje pasaje = new Pasaje
             {
                 NroPasaje = codigoPasaje,
                 IdItinerario = IdItinerario,
+                IdPasajero = buscarPasajeroDni,
                 FechaViaje = fechViaje,
                 Estado = estado,
                 NumeroAsieto = numeroAsiento,
                 precioPasaje = precioPasaje
             };
+            _context.Pasaje.Add(pasaje);
+            _context.SaveChanges();
         }
 
         public ItinerarioViaje FechaYHoraViaje(string IdItinerario)
@@ -90,6 +91,11 @@ namespace Buses.Service
         public int ObtenerNumeroPasaje()
         {
             return _context.Pasaje.Count();
+        }
+
+        public List<ItinerarioViaje> ListadoViaje()
+        {
+
         }
     }
 }

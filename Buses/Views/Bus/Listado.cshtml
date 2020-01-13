@@ -1,0 +1,49 @@
+﻿@model List<Buses.Entities.Bus>
+
+@{
+    ViewData["Title"] = "Listado Bus";
+}
+<div class="container mt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <label>Codigo</label>
+                </th>
+                <th>
+                    <label>Placa</label>
+                </th>
+                <th>
+                    <label>Nro Asiento</label>
+                </th>
+                <th>
+                    <label>Estado</label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bus in Model)
+            {
+                <tr>
+                    <td>
+                        @bus.IdBus
+                    </td>
+                    <td>
+                        @bus.NroPlaca
+                    </td>
+                    <td>
+                        @bus.NumeroAsiento
+                    </td>
+                    <td>
+                        @bus.EstadoBus
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="float-right">
+
+        <a class="btn btn-danger" asp-action="Index" asp-controller="PaginaPrincipal">Ir al Menu Principal</a>
+    </div>
+</div>

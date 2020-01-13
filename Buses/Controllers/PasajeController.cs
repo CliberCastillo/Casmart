@@ -13,26 +13,24 @@ namespace Buses.Controllers
 {
     public class PasajeController : Controller
     {
-        private readonly IMantenimientoViaje _mantenimientoViaje;
-        public PasajeController(IMantenimientoViaje mantenimientoViaje)
+        private readonly IViajeRepository _viaje;
+        public PasajeController(IViajeRepository viaje)
         {
-            _mantenimientoViaje = mantenimientoViaje;
+            _viaje = viaje;
         }
         public JsonResult RegistrarPasaje(string IdItinerario, string dniPasajero, string fechaViaje, string numeroAsiento, int precioPasaje, string estado)
         {
             
-            var numeroPasajes = _mantenimientoViaje.ObtenerNumeroPasaje();
+            var numeroPasajes = _viaje.ObtenerNumeroPasaje();
             var codigoPasaje = GenerarCodigoPasaje.CodigoPasaje(numeroPasajes);
-            _mantenimientoViaje.GuardarPasaje(codigoPasaje, IdItinerario, dniPasajero, fechaViaje, numeroAsiento, precioPasaje, estado);
-
-
+            _viaje.GuardarPasaje(codigoPasaje, IdItinerario, dniPasajero, fechaViaje, numeroAsiento, precioPasaje, estado);
 
             return Json("");
             
         }
         public JsonResult RegistrarPasajero(string Nombre, string ApellidoPaterno, string ApellidoMaterno,string Telefono, string TipoDocumento, string NumeroDocumento,string Correo)
         {
-            var numeroPasajeros = _mantenimientoViaje.ObtenerNumeroPasajeros();
+            var numeroPasajeros = _viaje.ObtenerNumeroPasajeros();
             var codigoPasajero = GenerarCodigoPasajero.CodigoPasajero(numeroPasajeros);
 
             Pasajero pasajero = new Pasajero
@@ -46,7 +44,7 @@ namespace Buses.Controllers
                 NumeroDocumento = NumeroDocumento,
                 Correo = Correo
             };
-            if (_mantenimientoViaje.GuardarPasajero(pasajero) == "Registrado")
+            if (_viaje.GuardarPasajero(pasajero) == "Registrado")
             {
                 return Json("PasajeroGuardado");
             }
@@ -61,13 +59,13 @@ namespace Buses.Controllers
         {
             ViewBag.Origen = viajes.Origen;
             ViewBag.Destino = viajes.Destino;
-            var lstViajesDisponibles = _mantenimientoViaje.ObtenerItinerarioViaje(viajes);
+            var lstViajesDisponibles = _viaje.ObtenerItinerarioViaje(viajes);
             return View(lstViajesDisponibles);
         }
         public IActionResult Asientos(string IdItinerario)
         {
             ViewBag.IdItinerario = IdItinerario;
-            var lstResumenCompra = _mantenimientoViaje.FechaYHoraViaje(IdItinerario);
+            var lstResumenCompra = _viaje.FechaYHoraViaje(IdItinerario);
             return View(lstResumenCompra);
         }
         

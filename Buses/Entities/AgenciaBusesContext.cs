@@ -393,19 +393,11 @@ namespace Buses.Entities
 
                 entity.Property(e => e.FechaViaje).HasColumnType("date");
 
-                entity.Property(e => e.IdEmpleado)
-                    .HasMaxLength(6)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.IdItinerario)
                     .HasMaxLength(6)
                     .IsUnicode(false);
 
                 entity.Property(e => e.IdPasajero)
-                    .HasMaxLength(6)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.IdReserva)
                     .HasMaxLength(6)
                     .IsUnicode(false);
 

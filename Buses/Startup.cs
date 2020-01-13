@@ -49,7 +49,9 @@ namespace Buses
             //});
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddTransient<IMantenimientoViaje, MantenimientoViaje>();
+            services.AddTransient<IViajeRepository, ViajeRepository>();
+            services.AddTransient<IAgenciaRepository, AgenciaRepository>();
+            services.AddTransient<IBusRepository, BusRepository>();
 
             services.AddSession();
             services.AddMvc();

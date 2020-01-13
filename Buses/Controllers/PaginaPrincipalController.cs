@@ -12,19 +12,19 @@ namespace Buses.Controllers
 {
     public class PaginaPrincipalController : Controller
     {
-        private readonly IMantenimientoViaje _mantenimientoViaje;
-        public PaginaPrincipalController(IMantenimientoViaje mantenimientoViaje)
+        private readonly IViajeRepository _viaje;
+        public PaginaPrincipalController(IViajeRepository viaje)
         {
-            _mantenimientoViaje = mantenimientoViaje;
+            _viaje = viaje;
         }
         public IActionResult Index()
         {
-            var lstAgenciaPromociones = _mantenimientoViaje.ObtenerListadoAgenciaPromociones()
+            var lstAgenciaPromociones = _viaje.ObtenerListadoAgenciaPromociones()
                 .ChunkBy(Constantes.CantidadColumnas);
 
             AgenciaViajesViewModel ltsAgencia = new AgenciaViajesViewModel
             {
-                Agencias = _mantenimientoViaje.ObtenerListadoAgencia(),
+                Agencias = _viaje.ObtenerListadoAgencia(),
                 AgenciasPromocionesAgrupado = lstAgenciaPromociones
             };
 
