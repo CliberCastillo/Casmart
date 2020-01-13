@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Buses.Entities
+namespace Buses.DTO
 {
-    public partial class ItinerarioViaje
+    public class ItinerarioBusAgencia
     {
-        public ItinerarioViaje()
-        {
-            Pasaje = new HashSet<Pasaje>();
-            Reserva = new HashSet<Reserva>();
-        }
-
         public string IdItinerario { get; set; }
         public string IdBus { get; set; }
         public string AgenciaOrigen { get; set; }
@@ -19,12 +15,8 @@ namespace Buses.Entities
         public DateTime HoraViaje { get; set; }
         //public string Hora { get; set; }
         public decimal? PrecioViaje { get; set; }
-
-        public Agencia IdAgenciaNavigation { get; set; }
-
-        public Bus IdBusNavigation { get; set; }
-        public ICollection<Pasaje> Pasaje { get; set; }
-        public ICollection<Reserva> Reserva { get; set; }
+        public string NroPlaca { get; set; }
+        public int NumeroAsiento { get; set; }
+        public string EstadoBus { get; set; }
     }
-
 }

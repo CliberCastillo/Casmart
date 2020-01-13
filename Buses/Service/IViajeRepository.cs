@@ -1,4 +1,5 @@
-﻿using Buses.Entities;
+﻿using Buses.DTO;
+using Buses.Entities;
 using Buses.Models;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,9 @@ namespace Buses.Service
         ItinerarioViaje FechaYHoraViaje(string IdItinerario);
         int ObtenerNumeroPasajeros();
         int ObtenerNumeroPasaje();
-        string GuardarPasajero(Pasajero pasajero);
-        List<ItinerarioViaje> ListadoViaje();
+        bool GuardarPasajero(Pasajero pasajero);
+        List<ItinerarioBusAgencia> ListadoViaje();
         void GuardarPasaje(string codigoPasaje, string IdItinerario, string dniPasajero, string fechaViaje, string numeroAsiento, int precioPasaje, string estado);
+        bool ExistePasajero(string numeroDocumento);
     }
 }

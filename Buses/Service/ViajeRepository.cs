@@ -1,4 +1,5 @@
-﻿using Buses.Entities;
+﻿using Buses.DTO;
+using Buses.Entities;
 using Buses.Models;
 using System;
 using System.Collections.Generic;
@@ -50,21 +51,19 @@ namespace Buses.Service
                                                 .SingleOrDefault();
         }
 
-        public string GuardarPasajero(Pasajero pasajero)
+        public bool ExistePasajero(string numeroDocumento)
         {
-            string mensaje;
-            var pasajeros = _context.Pasajero.Where(x => x.NumeroDocumento == pasajero.NumeroDocumento).Count();
-            if (pasajeros == 0)
-            {
-                _context.Pasajero.Add(pasajero);
-                _context.SaveChanges();
-                mensaje = "Registrado";
-            }
-            else
-            {
-                mensaje = "NoRegistrado";
-            }
-            return mensaje;
+            var existePasajero = _context.Pasajero.Any(x => x.NumeroDocumento == numeroDocumento);
+            return existePasajero;
+        }
+
+
+
+        public bool GuardarPasajero(Pasajero pasajero)
+        {
+            _context.Pasajero.Add(pasajero);
+            if (_context.SaveChanges() > 0) return true;
+            return false;
         }
 
         public List<ItinerarioViaje> ObtenerItinerarioViaje(AgenciaViajesViewModel viajes)
@@ -93,9 +92,30 @@ namespace Buses.Service
             return _context.Pasaje.Count();
         }
 
-        public List<ItinerarioViaje> ListadoViaje()
+        public List<ItinerarioBusAgencia> ListadoViaje()
         {
+            var query = _context.ItinerarioViaje
+                .Join(_context.Bus, i => i.IdBus, b => b.IdBus, (iv, bs) => new { iv, bs })
+                .Join(_context.Agencia, i => i.iv.IdAgencia, a => a.IdAgencia, (ivi, ag) => new { ivi, ag })
+                .Select(x => new ItinerarioBusAgencia
+                {
 
+                    AgenciaOrigen = x.ivi.iv.AgenciaOrigen,
+                    AgenciaDestino = x.ivi.iv.AgenciaDestino,
+                    NroPlaca = x.ivi.bs.NroPlaca,
+                    NumeroAsiento = x.ivi.bs.NumeroAsiento
+                })
+                .ToList();
+
+            //var entryPoint = (from iti in _context.ItinerarioViaje
+            //                  join bu in _context.Bus on iti.IdBus equals bu.IdBus
+            //                  join age in _context.Agencia on iti.IdAgencia equals age.IdAgencia
+            //                  select new
+            //                  {
+
+
+            //                  }).Take(10);
+            return query;
         }
     }
 }

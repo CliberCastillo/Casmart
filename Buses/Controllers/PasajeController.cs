@@ -30,6 +30,7 @@ namespace Buses.Controllers
         }
         public JsonResult RegistrarPasajero(string Nombre, string ApellidoPaterno, string ApellidoMaterno,string Telefono, string TipoDocumento, string NumeroDocumento,string Correo)
         {
+
             var numeroPasajeros = _viaje.ObtenerNumeroPasajeros();
             var codigoPasajero = GenerarCodigoPasajero.CodigoPasajero(numeroPasajeros);
 
@@ -44,13 +45,21 @@ namespace Buses.Controllers
                 NumeroDocumento = NumeroDocumento,
                 Correo = Correo
             };
-            if (_viaje.GuardarPasajero(pasajero) == "Registrado")
+
+            if (_viaje.ExistePasajero(NumeroDocumento))
             {
-                return Json("PasajeroGuardado");
+                if (_viaje.GuardarPasajero(pasajero))
+                {
+
+                }
+                else
+                {
+
+                }
             }
             else
             {
-                return Json("PasajeroNoGuardado");
+
             }
         }
 
@@ -67,6 +76,11 @@ namespace Buses.Controllers
             ViewBag.IdItinerario = IdItinerario;
             var lstResumenCompra = _viaje.FechaYHoraViaje(IdItinerario);
             return View(lstResumenCompra);
+        }
+        public IActionResult ListadoViaje()
+        {
+            var listado = _viaje.ListadoViaje();
+            return View(listado);
         }
         
     }
