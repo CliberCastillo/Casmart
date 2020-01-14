@@ -89,7 +89,8 @@ namespace Buses.Service
 
         public int ObtenerNumeroPasaje()
         {
-            return _context.Pasaje.Count();
+            var nose = _context.Pasaje.Count();
+            return nose; 
         }
 
         public List<ItinerarioBusAgencia> ListadoViaje()

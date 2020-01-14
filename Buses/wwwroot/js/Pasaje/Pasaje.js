@@ -205,7 +205,22 @@ $("#btnGuardarPasajero").click(function (e) {
                 $("#cboTipoDocumento").val("");
                 $("#txtDni").val("");
                 $("#txtEmail").val("");
-                $("#btnContinuar").css("display", "none")
+                $("#btnContinuar").css("display", "none");
+            }else if(data === "YaGuardado") {
+                swal({
+                    title: "Adventencia!",
+                    text: "Usted ya esta registrado, Proceda a realizar el pago",
+                    icon: "warning",
+                    button: "Aceptar"
+                });
+                $("#txtNombre").val("");
+                $("#txtApellidoPaterno").val("");
+                $("#txtApellidoMaterno").val("");
+                $("#txtTelefono").val("");
+                $("#cboTipoDocumento").val("");
+                $("#txtDni").val("");
+                $("#txtEmail").val("");
+                $('.bd-example-modal-lg').modal('toggle');
             }
             else {
                 swal({
@@ -263,7 +278,7 @@ $("#PagoPasaje").click(function (e) {
             precioPasaje: precioPasaje, IdItinerario: idItinerario, estado: tipoServicio
         },
         success: function (data, textStatus, jQxhr) {
-            if (data === "PasajeroGuardado") {
+            if (data === "PasajeGuardado") {
                 swal({
                     title: "Satisfactorio!",
                     text: "Se guardaron sus datos correctamente",

@@ -25,7 +25,7 @@ namespace Buses.Controllers
             var codigoPasaje = GenerarCodigoPasaje.CodigoPasaje(numeroPasajes);
             _viaje.GuardarPasaje(codigoPasaje, IdItinerario, dniPasajero, fechaViaje, numeroAsiento, precioPasaje, estado);
 
-            return Json("");
+            return Json("PasajeGuardado");
             
         }
         public JsonResult RegistrarPasajero(string Nombre, string ApellidoPaterno, string ApellidoMaterno,string Telefono, string TipoDocumento, string NumeroDocumento,string Correo)
@@ -60,7 +60,7 @@ namespace Buses.Controllers
             }
             else
             {
-                return Json("NoGuardado");
+                return Json("YaGuardado");
 
             }
         }
