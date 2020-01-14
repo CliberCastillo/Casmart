@@ -50,15 +50,17 @@ namespace Buses.Controllers
             {
                 if (_viaje.GuardarPasajero(pasajero))
                 {
-
+                    return Json("Registrado");
                 }
                 else
                 {
+                    return Json("NoRegistrado");
 
                 }
             }
             else
             {
+                return Json("NoRegistrado");
 
             }
         }

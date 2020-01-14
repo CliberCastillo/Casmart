@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Buses.Controllers
 {
+    using ServiceBus;
     public class DistritoController : Controller
     {
-        public IActionResult Index()
+        private ServiceBusClient _serviceBus = new ServiceBusClient();
+        public IActionResult Listado()
         {
-            return View();
+            var lstDistrito = _serviceBus.ListaDistritoAsync().Result;
+            return View(lstDistrito);
         }
     }
 }

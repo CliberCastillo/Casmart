@@ -1,4 +1,4 @@
-﻿@model List<Buses.Entities.Bus>
+﻿@model IEnumerable<ServiceBus.Bus>
 
 @{
     ViewData["Title"] = "Listado Bus";
@@ -19,7 +19,9 @@
                 <th>
                     <label>Estado</label>
                 </th>
-                <th></th>
+                <th>
+                    <label>Acción</label>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -38,12 +40,16 @@
                     <td>
                         @bus.EstadoBus
                     </td>
+                    <td>
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Index" asp-controller="PaginaPrincipal">Actualizar</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Index" asp-controller="PaginaPrincipal">Eliminar</a>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
-    <div class="float-right">
-
+    <div class="float-right mt-5">
+        <a class="btn btn-success" asp-action="" asp-controller=""><img src="~/images/sobresalir.png" class="w-15 mr-1" />Exportar a excel</a> |
         <a class="btn btn-danger" asp-action="Index" asp-controller="PaginaPrincipal">Ir al Menu Principal</a>
     </div>
 </div>

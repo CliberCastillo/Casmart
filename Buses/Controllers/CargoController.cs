@@ -4,13 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+using ServiceBus;
+
 namespace Buses.Controllers
 {
     public class CargoController : Controller
     {
-        public IActionResult Index()
+        private ServiceBusClient _serviceBus = new ServiceBusClient();
+
+        public IActionResult Listado()
         {
-            return View();
+            var lstCargo = _serviceBus.ListaCargoAsync().Result;
+            return View(lstCargo);
         }
     }
 }

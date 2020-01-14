@@ -4,13 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
+using ServiceBus;
+
 namespace Buses.Controllers
 {
     public class EmpleadoController : Controller
     {
-        public IActionResult Index()
+        private ServiceBusClient _serviceBus = new ServiceBusClient();
+
+        public IActionResult Listado()
         {
-            return View();
+            var lstEmpleado = _serviceBus.ListaEmpleadoAsync().Result;
+            return View(lstEmpleado);
         }
     }
 }

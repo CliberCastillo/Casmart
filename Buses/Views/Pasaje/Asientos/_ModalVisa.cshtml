@@ -2,37 +2,65 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                </h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row mt-2">
-                    <div class="col-2"></div>
-                        <div class="col-8">
-                            <label>Numero Tarjeta:</label>
-                            <input type="number" class="form-control" />
+                <form action="#" class="credit-card-div">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" placeholder="Ingresar Numero de Targeta" />
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <span class="help-block text-muted small-font">Mes de vencimiento</span>
+                                    <input type="text" class="form-control" placeholder="MM" />
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <span class="help-block text-muted small-font">Año de vencimiento</span>
+                                    <input type="text" class="form-control" placeholder="YY" />
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <span class="help-block text-muted small-font">CCV</span>
+                                    <input type="text" class="form-control" placeholder="CCV" />
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <img src="~/images/visa.png" class="img-rounded pt-4" width="40px" />
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-12 pad-adjust">
+
+                                    <input type="text" class="form-control" placeholder="Nombre en la Tarjeta" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 pad-adjust">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" checked class="text-muted">
+                                            Guardar detalles para pagos rápidos <a href="#"> ¿cómo?</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                    <input type="submit" class="btn btn-danger" value="Cancelar" />
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                                    <input type="submit" class="btn btn-warning btn-block" value="Pagar Ahora" />
+                                </div>
+                            </div>
                         </div>
-                    <div class="col-2"></div>
-                </div>
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-4">
-                        <label>Fecha V:</label>
-                        <input type="text" class="form-control" placeholder="--/----" />
                     </div>
-                    <div class="col-4">
-                        <label>CVC:</label>
-                        <input type="number" class="form-control" />
-                    </div>
-                    <div class="col-2"></div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" id="PagoPasaje" class="btn btn-danger">Pagar</button>
+                </form>
             </div>
         </div>
     </div>

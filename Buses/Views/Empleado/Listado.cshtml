@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ServiceBus.Empleado>
+
+@{
+    ViewData["Title"] = "Listado Bus";
+}
+<div class="container mt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <label>Codigo</label>
+                </th>
+                <th>
+                    <label>Nombre</label>
+                </th>
+                <th>
+                    <label>Apellido P</label>
+                </th>
+                <th>
+                    <label>Apellido M</label>
+                </th>
+                <th>
+                    <label>Cargo</label>
+                </th>
+                <th>
+                    <label>Telefono</label>
+                </th>
+                <th>
+                    <label>DNI</label>
+                </th>
+                <th>
+                    <label>Correo</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empleado in Model)
+            {
+            <tr>
+                <td>
+                    @empleado.IdEmpleado
+                </td>
+                <td>
+                    @empleado.Nombres
+                </td>
+                <td>
+                    @empleado.ApellidoPaterno
+                </td>
+                <td>
+                    @empleado.ApellidoMaterno
+                </td>
+                <td>
+                    @empleado.NombreCargo
+                </td>
+                <td>
+                    @empleado.Telefono
+                </td>
+                <td>
+                    @empleado.DNI
+                </td>
+                <td>
+                    @empleado.Correo
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div class="float-right">
+        <a class="btn btn-success" asp-action="" asp-controller=""><img src="~/images/sobresalir.png" class="w-15 mr-1" />Exportar a excel</a> |
+        <a class="btn btn-danger" asp-action="Index" asp-controller="PaginaPrincipal">Ir al Menu Principal</a>
+    </div>
+</div>
