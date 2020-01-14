@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Buses.Models;
 using Buses.Service;
 using Microsoft.AspNetCore.Mvc;
-using ServiceBus;
 
+using ServiceBus;
+using Buses.Common;
 namespace Buses.Controllers
 {
     public class BusController : Controller
@@ -23,12 +25,31 @@ namespace Buses.Controllers
         }
         public IActionResult Registrar()
         {
+            var numeroBuses = _bus.ObtenerNumeroBus();
+            ViewBag.codigoBus = GenerarCodigoBus.CodigoBus(numeroBuses);
             return View();
         }
         [HttpPost]
-        public IActionResult Registrar(Bus bus)
+        public IActionResult Registrar(BusViewModel busV)
         {
-            return View();
+            Bus bus = new Bus
+            {
+                IdBus = busV.IdBus,
+                EstadoBus = busV.EstadoBus,
+                NroPlaca = busV.NroPlaca,
+                NumeroAsiento = busV.NumeroAsiento
+            };
+            if (ModelState.IsValid)
+            {
+                _serviceBus.InsertarBusAsync(bus);
+                ViewBag.mensaje = "OK";
+                return View();
+            }
+            else
+            {
+                ViewBag.mensaje = "Error";
+                return View();
+            }
         }
     }
 }

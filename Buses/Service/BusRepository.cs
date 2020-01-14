@@ -17,5 +17,10 @@ namespace Buses.Service
         {
             return _context.Bus.ToList();
         }
+
+        public int ObtenerNumeroBus()
+        {
+            return _context.Bus.Count();
+        }
     }
 }

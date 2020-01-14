@@ -46,21 +46,21 @@ namespace Buses.Controllers
                 Correo = Correo
             };
 
-            if (_viaje.ExistePasajero(NumeroDocumento))
+            if (!_viaje.ExistePasajero(NumeroDocumento))
             {
                 if (_viaje.GuardarPasajero(pasajero))
                 {
-                    return Json("Registrado");
+                    return Json("PasajeroGuardado");
                 }
                 else
                 {
-                    return Json("NoRegistrado");
+                    return Json("NoGuardado");
 
                 }
             }
             else
             {
-                return Json("NoRegistrado");
+                return Json("NoGuardado");
 
             }
         }

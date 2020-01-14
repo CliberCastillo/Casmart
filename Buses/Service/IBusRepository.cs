@@ -9,5 +9,6 @@ namespace Buses.Service
     public interface IBusRepository
     {
         List<Bus> ListadoBus();
+        int ObtenerNumeroBus();
     }
 }

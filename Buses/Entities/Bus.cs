@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Buses.Entities
 {
@@ -10,7 +11,6 @@ namespace Buses.Entities
             AsientoBus = new HashSet<AsientoBus>();
             ItinerarioViaje = new HashSet<ItinerarioViaje>();
         }
-
         public string IdBus { get; set; }
         public string NroPlaca { get; set; }
         public int NumeroAsiento { get; set; }
