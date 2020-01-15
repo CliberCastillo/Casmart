@@ -1,0 +1,60 @@
+﻿@model List<Buses.DTO.ItinerarioBusAgencia>
+@{
+    ViewData["Title"] = "ListadoViaje";
+}
+
+<div class="container mt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <label>Agencia Origen</label>
+                </th>
+                <th>
+                    <label>Agencia Destino</label>
+                </th>
+                <th>
+                    <label>Placa Bus</label>
+                </th>
+                <th>
+                    <label>Nro Asientos</label>
+                </th>
+                <th>
+                    <label>Hora Viaje</label>
+                </th>
+                <th>
+                    <label>Precio</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        @i.AgenciaOrigen
+                    </td>
+                    <td>
+                        @i.AgenciaDestino
+                    </td>
+                    <td>
+                        @i.NroPlaca
+                    </td>
+                    <td>
+                        @i.NumeroAsiento
+                    </td>
+                    <td>
+                        @i.HoraViaje
+                    </td>
+                    <td>
+                        @i.PrecioViaje
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="float-right">
+        <a class="btn btn-success" asp-action="" asp-controller=""><img src="~/images/sobresalir.png" class="w-15 mr-1" />Exportar a excel</a> |
+        <a class="btn btn-danger" asp-action="Index" asp-controller="PaginaPrincipal">Ir al Menu Principal</a>
+    </div>
+</div>

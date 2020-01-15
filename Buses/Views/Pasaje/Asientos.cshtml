@@ -23,15 +23,18 @@
             <button type="button" class="btn btn-secondary mb-2 btn-sm ml-2 mr-2" id="asiento04" disabled>||||</button> No Disponible
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="text-center">
+                <div class="text-left ml-2 mt-4">
                     <button class="btn btn-danger" id="btnContinuar" data-toggle="modal" data-target="#ModalPasajero" style="width:200px">Continuar</button>
                 </div>
             }
             else
             {
-                <button style="" type="button" id="btnContinuar" class="btn btn-danger" data-toggle="modal" data-target="#ModalIniciarSesion2">
-                    Continuar
-                </button>
+                <div class="text-left ml-2 mt-4">
+
+                    <button style="" type="button" id="btnContinuar" class="btn btn-danger" data-toggle="modal" data-target="#ModalIniciarSesion2">
+                        Continuar
+                    </button>
+                </div>
             }
             <partial name="Asientos/_ModalIniciarSesion" />
         </div>
@@ -63,10 +66,18 @@
                                 <img src="~/images/calendario.png" class="mr-2" /><strong id="">@String.Format("{0:dd/mm/yyyy}", Model.HoraViaje)</strong> &nbsp;<img src="~/images/reloj.png" class="mr-1" /><strong id="">@String.Format("{0:HH:mm tt}", Model.HoraViaje)</strong><br />
                                 <img src="~/images/sillon.png" class="mr-2" />Asiento:<span id="asientosSeleccionados"></span>
                             <p><img src="~/images/simbolo-del-dolar.png" class="mr-2" />Sub Total:<strong id="precio" class="ml-2">0</strong></p>
-
-                            <div class="text-center">
-                                <a class="btn btn-dark font-weight-bold mb-4 btn-sm" data-toggle="modal" data-target="#ModalVisa" style="width:200px">Comprar Mi Viaje</a>
-                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="text-center">
+                                    <a class="btn btn-dark font-weight-bold mb-4 btn-sm" data-toggle="modal" data-target="#ModalVisa" style="width:200px">Comprar Mi Viaje</a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-center">
+                                    <button class="btn btn-dark font-weight-bold mb-4 btn-sm" data-toggle="modal" data-target="#ModalVisa" style="width:200px" disabled>Comprar Mi Viaje</button>
+                                </div>
+                            }
                         </div>
                         <div class="col-1"></div>
                     </div>

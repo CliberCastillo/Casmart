@@ -40,12 +40,10 @@
                             </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Agencia</a>
-                                <a class="dropdown-item" href="#">Viaje</a>
                                 <a class="dropdown-item" asp-action="Registrar" asp-controller="Bus">Bus</a>
                                 <a class="dropdown-item" href="#">Empleado</a>
                                 <a class="dropdown-item" href="#">Cargo</a>
                                 <a class="dropdown-item" href="#">Distrito</a>
-                                <a class="dropdown-item" href="#">Rol</a>
                             </div>
                         </div>
                     </li>
@@ -77,6 +75,8 @@
             }
             @if (User.Identity.IsAuthenticated)
             {
+                <a asp-action="" asp-controller="" class="btn btn-outline-light mr-1 my-2 my-sm-0 font-weight-bold">Mis Compras</a>
+
                 <button type="button" id="registrames" class="btn btn-outline-light my-2 ml-1 mr-1 my-sm-0 font-weight-bold">
                     <span class="mr-1">
                         <img src="~/images/usuario (1).png" width="20" />

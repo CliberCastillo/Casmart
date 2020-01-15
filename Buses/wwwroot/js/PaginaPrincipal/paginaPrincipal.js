@@ -63,15 +63,19 @@ function validacion() {
     var origen = $("#cboRutaOrigen option:selected").text();
     var destino = $("#cboRutaDestino option:selected").text();
     if (origen === "- Origen -") {
-        swal("Error!", "Por Favor seleccionar los campos requeridos")
+        swal("Error!", "Por Favor seleccionar los campos requeridos");
         return false;
     }
-    else if (origen != "- Origen -" && destino === "- Destino -") {
-        swal("Error!", "Por Favor seleccionar los campos requeridos")
+    else if (origen === "- Origen -" && destino === "- Destino -") {
+        swal("Error!", "Por Favor seleccionar los campos requeridos");
         return false;
     }
     else if (destino === "- Destino -") {
-        swal("Error!", "Por Favor seleccionar los campos requeridos")
+        swal("Error!", "Por Favor seleccionar los campos requeridos");
+        return false;
+    }
+    else if (origen === destino) {
+        swal("Error!", "Por Favor seleccionar los campos correctos");
         return false;
     }
     return true;

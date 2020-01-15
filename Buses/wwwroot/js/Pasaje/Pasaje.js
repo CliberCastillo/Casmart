@@ -285,6 +285,7 @@ $("#PagoPasaje").click(function (e) {
                     icon: "success",
                     button: "Aceptar"
                 });
+                window.reload();
             }
             else {
                 swal({

@@ -100,22 +100,14 @@ namespace Buses.Service
                 .Join(_context.Agencia, i => i.iv.IdAgencia, a => a.IdAgencia, (ivi, ag) => new { ivi, ag })
                 .Select(x => new ItinerarioBusAgencia
                 {
-
                     AgenciaOrigen = x.ivi.iv.AgenciaOrigen,
                     AgenciaDestino = x.ivi.iv.AgenciaDestino,
                     NroPlaca = x.ivi.bs.NroPlaca,
-                    NumeroAsiento = x.ivi.bs.NumeroAsiento
+                    NumeroAsiento = x.ivi.bs.NumeroAsiento,
+                    HoraViaje = x.ivi.iv.HoraViaje,
+                    PrecioViaje = x.ivi.iv.PrecioViaje,
                 })
                 .ToList();
-
-            //var entryPoint = (from iti in _context.ItinerarioViaje
-            //                  join bu in _context.Bus on iti.IdBus equals bu.IdBus
-            //                  join age in _context.Agencia on iti.IdAgencia equals age.IdAgencia
-            //                  select new
-            //                  {
-
-
-            //                  }).Take(10);
             return query;
         }
     }
