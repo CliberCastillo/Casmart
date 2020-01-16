@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ServiceBus.MisCompras>
+
+@{
+    ViewData["Title"] = "MiCompra";
+}
+
+<div class="container mt-5">
+    <div class="row ">
+        @foreach (var compras in Model)
+        {
+            <div class="col-4 border border-dark mr-1 pb-3">
+                <p class="text-center mt-3">Empresa de transportes CASMART</p>
+                <strong>Nombre:</strong><label class="ml-2 mr-5">@compras.Nombres</label>
+                <strong>Apellidos:</strong><label class="ml-2">@compras.ApellidoPaterno @compras.ApellidoMaterno</label><br />
+                <strong>DNI:</strong><label class="ml-2">@compras.NumeroDocumento</label>
+                <strong class="ml-5">Telefono:</strong><label class="ml-2">@compras.Telefono</label><br />
+                <strong>Origen:</strong><label class="ml-1">@compras.AgenciaOrigen</label>
+                <strong class="ml-2">Destino:</strong><label class="ml-1">@compras.AgenciaDestino</label><br />
+                <strong>Hora:</strong><label class="ml-1">@compras.HoraViaje</label><br />
+                <strong>PLaca Bus:</strong><label class="ml-1">@compras.NroPlaca</label>
+                <br /><br />
+                <div class="float-right mr-2">
+                    <button class="btn btn-dark btn-sm">Imprimir boleto</button>
+
+                    <strong>Costo:</strong><label class="ml-1">@compras.PrecioViaje</label>
+                </div>
+            </div>
+        }
+    </div>
+</div>

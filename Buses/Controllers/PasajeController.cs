@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Buses.Models;
 using Buses.Common;
 using Buses.Entities;
+using ServiceBus;
 
 namespace Buses.Controllers
 {
@@ -84,6 +85,13 @@ namespace Buses.Controllers
             var listado = _viaje.ListadoViaje();
             return View(listado);
         }
-        
+        [HttpPost]
+        public IActionResult MiCompra(string DNI)
+        {
+            ServiceBusClient _service = new ServiceBusClient();
+            var lstMisCompras = _service.MisComprasAsync(DNI).Result;
+            return View(lstMisCompras);
+        } 
+
     }
 }

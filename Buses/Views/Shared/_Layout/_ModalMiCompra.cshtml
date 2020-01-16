@@ -1,0 +1,22 @@
+﻿<form asp-action="MiCompra" asp-controller="Pasaje" method="post">
+    <div class="modal fade" id="ModalMiCompra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Mi DNI</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label>DNI</label>
+                    <input type="number" name="DNI" class="form-control" placeholder="Ingresar su DNI" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-danger">Consultar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

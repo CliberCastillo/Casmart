@@ -370,6 +370,163 @@ namespace ServiceBus
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MisCompras", Namespace="http://schemas.datacontract.org/2004/07/WCFAgenciaBuses.Entities")]
+    public partial class MisCompras : object
+    {
+        
+        private string AgenciaDestinoField;
+        
+        private string AgenciaOrigenField;
+        
+        private string ApellidoMaternoField;
+        
+        private string ApellidoPaternoField;
+        
+        private System.DateTime HoraViajeField;
+        
+        private string NombresField;
+        
+        private string NroPlacaField;
+        
+        private string NumeroDocumentoField;
+        
+        private int PrecioViajeField;
+        
+        private string TelefonoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AgenciaDestino
+        {
+            get
+            {
+                return this.AgenciaDestinoField;
+            }
+            set
+            {
+                this.AgenciaDestinoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AgenciaOrigen
+        {
+            get
+            {
+                return this.AgenciaOrigenField;
+            }
+            set
+            {
+                this.AgenciaOrigenField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApellidoMaterno
+        {
+            get
+            {
+                return this.ApellidoMaternoField;
+            }
+            set
+            {
+                this.ApellidoMaternoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ApellidoPaterno
+        {
+            get
+            {
+                return this.ApellidoPaternoField;
+            }
+            set
+            {
+                this.ApellidoPaternoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime HoraViaje
+        {
+            get
+            {
+                return this.HoraViajeField;
+            }
+            set
+            {
+                this.HoraViajeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombres
+        {
+            get
+            {
+                return this.NombresField;
+            }
+            set
+            {
+                this.NombresField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NroPlaca
+        {
+            get
+            {
+                return this.NroPlacaField;
+            }
+            set
+            {
+                this.NroPlacaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumeroDocumento
+        {
+            get
+            {
+                return this.NumeroDocumentoField;
+            }
+            set
+            {
+                this.NumeroDocumentoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PrecioViaje
+        {
+            get
+            {
+                return this.PrecioViajeField;
+            }
+            set
+            {
+                this.PrecioViajeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telefono
+        {
+            get
+            {
+                return this.TelefonoField;
+            }
+            set
+            {
+                this.TelefonoField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceBus.IServiceBus")]
     public interface IServiceBus
@@ -398,6 +555,9 @@ namespace ServiceBus
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBus/InsertarCargo", ReplyAction="http://tempuri.org/IServiceBus/InsertarCargoResponse")]
         System.Threading.Tasks.Task<int> InsertarCargoAsync(ServiceBus.Cargo cargo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBus/MisCompras", ReplyAction="http://tempuri.org/IServiceBus/MisComprasResponse")]
+        System.Threading.Tasks.Task<ServiceBus.MisCompras[]> MisComprasAsync(string DNI);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
@@ -488,6 +648,11 @@ namespace ServiceBus
         public System.Threading.Tasks.Task<int> InsertarCargoAsync(ServiceBus.Cargo cargo)
         {
             return base.Channel.InsertarCargoAsync(cargo);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceBus.MisCompras[]> MisComprasAsync(string DNI)
+        {
+            return base.Channel.MisComprasAsync(DNI);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

@@ -20,6 +20,7 @@
   <ItemGroup>
     <None Include="Views\PaginaPrincipal\Index\_NuestraPromesa.cshtml" />
     <None Include="Views\PaginaPrincipal\Index\_Slider.cshtml" />
+    <None Include="wwwroot\images\boleto.png" />
   </ItemGroup>
 
   <ItemGroup>
