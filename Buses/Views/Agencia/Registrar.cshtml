@@ -1,0 +1,58 @@
+﻿@model List<Buses.Entities.Distrito>
+@{
+    ViewData["Title"] = "Registrar";
+}
+<div class="container mt-5">
+    <form asp-action="Registrar" asp-controller="Agencia" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Nombre Agencia</label>
+                <input type="text" class="form-control" id="" name="NombreAgencia" placeholder="Nombre Agencia">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="">Estado</label>
+                <select id="" name="EstadoAgencia" class="form-control">
+                    <option selected>- Seleccionar -</option>
+                    <option>Activo</option>
+                    <option>Construccion</option>
+                    <option>cerrado</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="">Telefono</label>
+                <input type="number" class="form-control" id="" name="Telefono" placeholder="Ingresar su telefono">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="">Correo</label>
+                <input type="email" class="form-control" id="" name="Correo" placeholder="Ingresar su correo">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputZip">Distrito</label>
+                <select id="" name="CPostal" class="form-control">
+                    <option selected>- Seleccionar -</option>
+                    @foreach (var cpostal in Model)
+                    {
+                        <option value="@cpostal.Cpostal">@cpostal.NombreDistrito</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="float-right mt-2">
+
+            <a asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-dark">Salir</a>
+            <button type="reset" class="btn btn-dark">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Registrar</button>
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

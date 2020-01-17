@@ -22,7 +22,9 @@
                 <th>
                     <label>Estado</label>
                 </th>
-                <th></th>
+                <th>
+                    <label>Acción</label>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -45,12 +47,82 @@
                         @agencia.EstadoAgencia
                     </td>
                     <td>
+                        <button class="btn btn-danger btn-sm" data-toggle="modal" id="ActualizarClick" data-target="#ActualizarAgencia">Actualizar<stron style="display:none" id="valor">@agencia.IdAgencia</stron></button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
     <div class="float-right">
 
-    <a class="btn btn-danger" asp-action="Index" asp-controller="PaginaPrincipal">Ir al Menu Principal</a>
+        <a class="btn btn-danger" asp-action="Index" asp-controller="PaginaPrincipal">Ir al Menu Principal</a>
     </div>
 </div>
+
+<!-- Modal -->
+<div id="ActualizarAgencia" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Registrar" asp-controller="Agencia" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Nombre Agencia</label>
+                            <input type="text" class="form-control" id="" name="NombreAgencia" placeholder="Nombre Agencia">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Estado</label>
+                            <select id="" name="EstadoAgencia" class="form-control">
+                                <option selected>- Seleccionar -</option>
+                                <option>Activo</option>
+                                <option>Construccion</option>
+                                <option>cerrado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Telefono</label>
+                            <input type="number" class="form-control" id="" name="Telefono" placeholder="Ingresar su telefono">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Correo</label>
+                            <input type="email" class="form-control" id="" name="Correo" placeholder="Ingresar su correo">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Distrito</label>
+                            <select id="" name="CPostal" class="form-control">
+                                <option selected>- Seleccionar -</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="float-right mt-2">
+
+                        <a asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-dark">Salir</a>
+                        <button type="reset" class="btn btn-dark">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Registrar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $("#ActualizarClick").click(function (e) {
+            alert($("#valor").text())
+        })
+    </script>
+ }

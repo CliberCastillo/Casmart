@@ -9,6 +9,6 @@ namespace Buses.Service
     public interface IAgenciaRepository
     {
         List<Agencia> listadoAgencia();
-
+        List<Distrito> ListadoDistrito();
     }
 }

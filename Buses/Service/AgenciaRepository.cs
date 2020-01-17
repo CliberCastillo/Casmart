@@ -17,5 +17,10 @@ namespace Buses.Service
         {
             return _context.Agencia.ToList();
         }
+
+        public List<Distrito> ListadoDistrito()
+        {
+            return _context.Distrito.ToList();
+        }
     }
 }

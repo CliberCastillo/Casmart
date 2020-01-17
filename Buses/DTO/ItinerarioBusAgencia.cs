@@ -13,7 +13,6 @@ namespace Buses.DTO
         public string AgenciaDestino { get; set; }
         public string IdAgencia { get; set; }
         public DateTime HoraViaje { get; set; }
-        //public string Hora { get; set; }
         public decimal? PrecioViaje { get; set; }
         public string NroPlaca { get; set; }
         public int NumeroAsiento { get; set; }
