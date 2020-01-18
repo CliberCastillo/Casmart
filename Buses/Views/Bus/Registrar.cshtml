@@ -9,24 +9,24 @@
             <div class="col-4">
                 <div class="form-group">
                     <label asp-for="IdBus"></label>
-                    <input asp-for="IdBus" id="IdBus" class="form-control border-dark" value="@ViewBag.codigoBus" readonly />
+                    <input asp-for="IdBus" id="IdBus" class="form-control" value="@ViewBag.codigoBus" readonly />
                     <span asp-validation-for="IdBus" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="NumeroAsiento" class="mt-2"></label>
-                    <input asp-for="NumeroAsiento" id="NumeroAsiento" class="form-control border-dark" />
+                    <input asp-for="NumeroAsiento" id="NumeroAsiento" class="form-control" />
                     <span asp-validation-for="NumeroAsiento" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-4">
                 <div class="form-group">
                     <label asp-for="NroPlaca"></label>
-                    <input asp-for="NroPlaca" id="NroPlaca" class="form-control border-dark" />
+                    <input asp-for="NroPlaca" id="NroPlaca" class="form-control" />
                     <span asp-validation-for="NroPlaca" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="EstadoBus" class="mt-2"></label>
-                    <input asp-for="EstadoBus" id="EstadoBus" class="form-control border-dark" />
+                    <input asp-for="EstadoBus" id="EstadoBus" class="form-control" />
                     <span asp-validation-for="EstadoBus" class="text-danger"></span>
                 </div>
                 @if (ViewBag.mensaje == "OK")
@@ -57,6 +57,7 @@
         </div>
     </form>
 </div>
+<br /><br /><br /><br /><br /><br /><br />
 
 @section Scripts{
     <script>

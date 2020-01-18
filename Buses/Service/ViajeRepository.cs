@@ -110,5 +110,26 @@ namespace Buses.Service
                 .ToList();
             return query;
         }
+
+        public List<Bus> ObtenerListadoBus()
+        {
+            return _context.Bus.ToList();
+        }
+
+        public void GuardarViaje(ItinerarioViaje itinerario)
+        {
+            _context.ItinerarioViaje.Add(itinerario);
+            _context.SaveChanges();
+        }
+
+        public string AgenciaOrigenPorCodigo(string idAgenciaOrigen)
+        {
+            return _context.Agencia.Where(x => x.IdAgencia == idAgenciaOrigen).Select(x => x.NombreAgencia).SingleOrDefault();
+        }
+
+        public int numeroItinerario()
+        {
+            return _context.ItinerarioViaje.Count();
+        }
     }
 }

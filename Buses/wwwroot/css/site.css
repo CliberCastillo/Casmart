@@ -36,16 +36,20 @@ body {
         display: none;
     }
 }
+
 .fondoNavbar {
     background-color: #d74f57;
 }
+
 .colorPagina {
     background-color: #d74f57;
 }
+
 .redondeadonorelieve {
     border-radius: 5px;
     border: 2px solid #d74f57;
 }
+
 .bordeSteve {
     border: 3px solid #d74f57;
     border-radius: 5px;
@@ -53,6 +57,7 @@ body {
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
     box-shadow: 10px 10px 5px 0px #EAEDED;
 }
+
 .border {
     border: 4px solid #000000;
     border-radius: 5px;
@@ -60,6 +65,7 @@ body {
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
     box-shadow: 10px 10px 5px 0px #EAEDED;
 }
+
 .imagenesfondo {
     height: 100%;
     background-repeat: no-repeat;
@@ -68,6 +74,7 @@ body {
     background-blend-mode: soft-light;
     background-size: 100% 100%;
 }
+
 .negroBorder {
     border: 1px solid #000000;
     border-radius: 5px;
@@ -75,17 +82,21 @@ body {
     -moz-box-shadow: 10px 10px 5px 0px #EAEDED;
     box-shadow: 10px 10px 5px 0px #EAEDED;
 }
+
 .bordesNegro {
     border: 1px solid #000000;
     border-radius: 5px;
 }
+
 .bg-colorPagina {
     background-color: #d74f57;
 }
+
 .redondeadonorelieveWarning {
     border-radius: 5px;
     border: 2px solid rgb(255, 216, 0);
 }
+
 .credit-card-div span {
     padding-top: 10px;
 }
@@ -100,4 +111,9 @@ body {
 
 .credit-card-div .pad-adjust {
     padding-top: 10px;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
 }

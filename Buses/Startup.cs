@@ -52,6 +52,7 @@ namespace Buses
             services.AddTransient<IViajeRepository, ViajeRepository>();
             services.AddTransient<IAgenciaRepository, AgenciaRepository>();
             services.AddTransient<IBusRepository, BusRepository>();
+            services.AddTransient<IDistritoRepository, DistritoRepository>();
 
             services.AddSession();
             services.AddMvc();

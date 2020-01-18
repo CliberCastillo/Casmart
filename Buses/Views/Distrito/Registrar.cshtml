@@ -1,0 +1,37 @@
+﻿@model List<Buses.Entities.Provincia>
+@{
+    ViewData["Title"] = "Registrar";
+}
+<form asp-action="Registrar" asp-controller="Distrito" method="post">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-3">
+                <label>Nombre Distrito</label>
+                <input type="text" class="form-control" name="Nombre" />
+            </div>
+            <div class="col-3">
+                <label>Provincia</label>
+                <select class="form-control" name="IdProvincia">
+                    <option>- Provincia -</option>
+                    @foreach (var provincia in Model)
+                    {
+                        <option value="@provincia.IdProvincia">@provincia.NombreProvincia</option>
+                    }
+                </select>
+                <div class="form-group mt-4 float-right">
+                    <a asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-outline-danger">Salir</a>
+                    <a asp-action="Registrar" asp-controller="Bus" class="btn btn-danger">Nuevo</a>
+                    <input type="submit" class="btn btn-danger" id="RegistrarBus" value="Registrar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

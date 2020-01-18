@@ -1,0 +1,63 @@
+﻿@model Buses.Models.BusAgenciaViewModel
+@{
+    ViewData["Title"] = "Registrar";
+}
+<div class="container mt-5">
+    <form asp-action="Registrar" asp-controller="Viaje" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Agencia Origen</label>
+                <select id="" name="IdAgencia" class="form-control">
+                    <option selected>- Seleccionar -</option>
+                    @foreach (var agencia in Model.agencias)
+                    {
+                        <option value="@agencia.IdAgencia">@agencia.NombreAgencia</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Agencia Destino</label>
+                <select id="" name="AgenciaDestino" class="form-control">
+                    <option selected>- Seleccionar -</option>
+                    @foreach (var agencia in Model.agencias)
+                    {
+                        <option value="@agencia.NombreAgencia">@agencia.NombreAgencia</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Bus</label>
+                <select id="" name="IdBus" class="form-control">
+                    <option selected>- Seleccionar -</option>
+                    @foreach (var bus in Model.buses)
+                    {
+                        <option value="@bus.IdBus">@bus.NroPlaca</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Fecha Viaje</label>
+                <input type="date" name="HoraViaje" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Precio</label>
+                <input type="number" name="PrecioViaje" class="form-control" />
+            </div>
+            <div class="form-group col-md-4">
+            </div>
+        </div>
+        <div class="form-row mt-3">
+            <div class="form-group col-md-4">
+            </div>
+            <div class="form-group col-md-4 ">
+                    <a asp-action="Index" asp-controller="PaginaPrincipal" class="btn btn-dark">Salir</a>
+                    <button type="reset" class="btn btn-dark">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Registrar</button>
+            </div>
+        </div>
+    </form>
+</div>
